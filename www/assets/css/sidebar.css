@@ -74,6 +74,16 @@ body {
     width: 100px !important;
     max-width: 100% !important;
   }
+  
+  .selectButton{
+     background: #fcb900 !important;
+    color: #000 !important;
+    font-weight: bolder !important;
+    margin-top: 3px !important;
+    font-size: 1.1rem !important;
+    margin-left: 12% !important;
+    width: 110px !important;
+  }
 }
 
 #pgmain {
@@ -109,4 +119,14 @@ input#custom-input-date, label {
 
 .form-group {
     margin-bottom: 1rem !important;
+}
+
+.selectButton {
+       background: #fcb900 !important;
+    color: #000 !important;
+    font-weight: bolder !important;
+    margin-top: 3px !important;
+    font-size: 1.1rem !important;
+    margin-left: 12% !important;
+    width: 165px !important;
 }

@@ -24,15 +24,7 @@
     /* color: #f9d957; */
 }
 
-.selectButton .shiny-bound-input{
-       background: #fcb900 !important;
-    color: #000 !important;
-    font-weight: bolder !important;
-    margin-top: 3px !important;
-    font-size: 1.1rem !important;
-    margin-left: 12% !important;
-    width: 165px !important;
-}
+
 
 .block1 {
     height: 400px;

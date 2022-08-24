@@ -1,0 +1,23 @@
+
+
+set.seed(1)
+xz = zoo(ts(rnorm(20), frequency = 4, start = c(1959, 2)))
+yz = zoo(ts(rnorm(20), frequency = 4, start = c(1959, 2)))
+# Basic approach
+plot(xz)
+lines(yz, col = "red")
+# Panels
+plot.zoo(cbind(xz, yz))
+# Overplotted
+plot.zoo(cbind(xz, yz), 
+         plot.type = "single", 
+         col = c("red", "blue"))
+
+plot.zoo(cbind(xz, yz), 
+         plot.type = "multiple", 
+         col = c("red", "blue"))
+
+set.seed(1)
+x = ts(rnorm(20), frequency = 4, start = c(1959, 2))
+y = ts(rnorm(20), frequency = 4, start = c(1959, 2))
+ts.plot(x, y, gpars = list(col = c("black", "red")))

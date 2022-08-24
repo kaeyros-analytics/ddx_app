@@ -1,0 +1,27 @@
+{
+    "id": "50B78840",
+    "path": "C:/Users/Gleyne Monthe/Desktop/DDX_Visualization/R/Neuer Ordner/DDX_Forecast_Visualization_2.R",
+    "project_path": "R/Neuer Ordner/DDX_Forecast_Visualization_2.R",
+    "type": "r_source",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1661343154340.0,
+    "source_on_save": false,
+    "relative_order": 6,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "230,0",
+        "scrollLine": "203",
+        "ignored_words": "mts\n"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1661343213,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1661343213344,
+    "read_only": false,
+    "read_only_alternatives": []
+}

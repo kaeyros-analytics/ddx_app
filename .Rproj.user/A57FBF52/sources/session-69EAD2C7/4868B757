@@ -1,0 +1,28 @@
+{
+    "id": "4868B757",
+    "path": null,
+    "project_path": null,
+    "type": "object_explorer",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1661356401030.0,
+    "source_on_save": false,
+    "relative_order": 10,
+    "properties": {
+        "id": "ed293e8e7dd7438aaa88afbc890a7ebe",
+        "name": "fcast1",
+        "title": "fcast1",
+        "language": "R",
+        "source_window_id": "",
+        "Source": "Source"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1802737688304,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1661356401030,
+    "read_only": false,
+    "read_only_alternatives": []
+}

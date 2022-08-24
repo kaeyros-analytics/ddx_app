@@ -46,47 +46,36 @@
             <span class="text-logo text-center">Dynamic Pricing Calculator</span>
         </div>
         <form action="">
-            <div class="form-group row  pl-3 pr-3 ml-4">
-                <div>
-                    <label for="automplete-2" class="select1">Client_Id</label>
-                </div>
-                <div>
+            <div class="form-group row  pl-1 pr-3 ml-2">
+                <div class="filtre1">
                  <!-- <input class="form-control" id="automplete-2" placeholder="Cl_00..."> -->
                  {{selectclientid}}
                 </div>
             </div>
-            <div class="form-group row pl-3 pr-3 ml-4">
-                <div>
-                    <label for="automplete-1" class="select1">Machine_Id</label>
-                </div>
-                <div>
+            <div class="form-group row pl-1 pr-3 ml-2">
+                <div class="filtre1">
                   <!-- <input class="form-control" id="automplete-1" placeholder="M_00..."> -->
                   {{selectmachineid}}
                 </div>
             </div>
-            <div class="form-group row pl-3 pr-3 ml-4" style="margin-right: 8px;">
-                <div>
-                    <label class="select1">Start_Period</label>
-                </div>
-                <div>
-                    <div class="date-container ">
+            <div class="form-group row pl-1 pr-3 ml-2" style="margin-right: 8px;">
+                    <div class="filtre1">
                        <!-- <input id="date" type="text" />
                         <span class="date-text"></span>
                         <i class="date-icon fa fa-calendar" aria-hidden="true"></i> -->
                         {{selectdate}}
                     </div>
-                </div>
             </div>
-            <div class="form-group row pl-3 pr-3 ml-4">
-                <div>
-                    <label for="automplete-3" class="select1">Forecast_Period</label>
-                </div>
-                <div>
+            <div class="form-group row pl-1 pr-3 ml-2">
+                <div class="filtre1">
                   <!-- <input class="form-control" id="automplete-3" placeholder="3,6,12..."> -->
                   {{selectperiod}}
                 </div>
             </div>
-            <button type="submit" class="btn selectButton mt-4" style="background: #fcb900; color: #000; width: 77%;">Calculate</button>
+            <div class="selectButton">
+              {{button}}
+            </div>
+            <!--<button type="submit" class="btn selectButton mt-4" style="background: #fcb900; color: #000; width: 77%;">Calculate</button>-->
         </form>
 
         <!--  <div class="client form-group" id="client_id">
@@ -191,7 +180,7 @@
                                 class="text-muted text2"></span>
                         </div>
 
-                        <div>
+                        <div class="plot1">
                             plot1
                         </div>
                     </div>
@@ -206,7 +195,7 @@
                         </div>
 
 
-                        <div>
+                        <div class="plot2">
                           plot 2
                         </div>
                     </div>
@@ -225,7 +214,7 @@
                         </div>
 
 
-                        <div>
+                        <div class="plot3">
                           plot3
                         </div>
                     </div>
@@ -240,7 +229,7 @@
                         </div>
 
 
-                        <div>
+                        <div class="plot4">
                           plot4
                         </div>
                     </div>

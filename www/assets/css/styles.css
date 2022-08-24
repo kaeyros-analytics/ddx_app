@@ -24,13 +24,14 @@
     /* color: #f9d957; */
 }
 
-.selectButton{
-    background: #fcb900;
-    color: #000;
-    font-weight: bolder;
+.selectButton .shiny-bound-input{
+       background: #fcb900 !important;
+    color: #000 !important;
+    font-weight: bolder !important;
     margin-top: 3px !important;
     font-size: 1.1rem !important;
-    margin-left: 14%;
+    margin-left: 12% !important;
+    width: 165px !important;
 }
 
 .block1 {
@@ -53,12 +54,6 @@
     border-radius: 0.25rem;
 }
 
-.date-container {
-    position: relative;
-    float: left;
-
-
-}
 .date-text {
     position: absolute;
     top: 6px;

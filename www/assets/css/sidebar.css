@@ -29,6 +29,7 @@ body {
     text-align: center;
     margin-bottom: 42px;
     margin-top: 9px;
+    margin-left: -23px;
 }
 
 .text-logo {
@@ -43,7 +44,7 @@ body {
 /* Resonsive transformation for mobile display. We can enhance it if needed. */
 @media screen and (max-width:768px) {
     #pgside {
-        width: 135px;
+        width: 15%;
     }
 
     #pgside #pguser {
@@ -62,12 +63,50 @@ body {
 
     /*#pgside i.txt { display: none; }*/
     #pgmain {
-        margin-left: 135px !important;
+        margin-left: 15% !important;
     }
+    
+    .filtre1 {
+    width: 110px !important;
+    max-width: 100% !important;
+  }
+  .date-container {
+    width: 100px !important;
+    max-width: 100% !important;
+  }
 }
 
 #pgmain {
     flex-grow: 1;
     margin-left: 15%;
     margin-top: 4%;
+}
+
+.filtre1 {
+    width: 200px !important;
+    max-width: 100%;
+}
+.date-container {
+    width: 200px !important;
+    max-width: 100%;
+}
+
+.input-daterange .input-group-addon{
+    margin-top: -4px;
+}
+
+.input-group-text{
+   background-color: #ffffff00 !important;
+   border: none !important;
+   color: #fff !important;
+   font-weight: bolder !important;
+   
+}
+
+input#custom-input-date, label {
+    color: #fff !important;
+}
+
+.form-group {
+    margin-bottom: 1rem !important;
 }

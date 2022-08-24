@@ -1,0 +1,43 @@
+.jumbotron {
+    background-image: url("https://www.smak.co.za/images/bg.jpg");
+    background-size: 100% 100%;
+    color: #b0bec5;
+    margin-bottom: 0;
+  }
+  .navbar-scroll {
+    background-color: rgba(0,123,255,0.4);
+    transition: background-color 0.5s;
+  }
+  @media(max-width: 768px){
+      .navbar {background-color: rgba(0,123,255,0.4) !important; }
+  }
+  /* ============================================================
+    PRIMARY STRUCTURE
+  ============================================================ */
+  .parallax-container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .box-shadow-navbar {
+    box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%);
+  }
+
+  .no-box-shadow-navbar {
+    box-shadow: 0 0px 0px 0 rgb(32 33 36 / 28%)!important;
+  }
+  
+  .text-color-nav {
+    color: black;
+    /* font-weight: 600; */
+  }
+
+  .navbar-nav>.active>a {
+    background-color: #fcb900!important;
+    border-radius: 5px;
+    color: black!important;
+  }
+
+  /* .nav-item:hover {
+    background-color: #fcb900;
+  } */

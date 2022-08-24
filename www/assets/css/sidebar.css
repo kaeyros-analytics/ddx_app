@@ -1,0 +1,73 @@
+/* The css styles below is about the sidebar and the global main.*/
+* {
+    font-family: arial, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+/* Sidebar*/
+#pgside {
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    width: 15%;
+    transition: width 0.2s;
+    /* background: #13423e; */
+    background: #13423e7a;
+
+}
+
+
+.title {
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 42px;
+    margin-top: 9px;
+}
+
+.text-logo {
+    font-size: 1.25rem;
+    font-style: normal;
+    color: #f9d957;
+    font-weight: bolder;
+    text-transform: uppercase;
+    /* color: #f9d957; */
+}
+
+/* Resonsive transformation for mobile display. We can enhance it if needed. */
+@media screen and (max-width:768px) {
+    #pgside {
+        width: 135px;
+    }
+
+    #pgside #pguser {
+        justify-content: center;
+    }
+
+    #pgside a {
+        text-align: center;
+        /* padding: 20px 0; */
+    }
+
+    #pgside i.ico {
+        font-size: 1.5em;
+        margin-right: 0;
+    }
+
+    /*#pgside i.txt { display: none; }*/
+    #pgmain {
+        margin-left: 135px !important;
+    }
+}
+
+#pgmain {
+    flex-grow: 1;
+    margin-left: 15%;
+    margin-top: 4%;
+}

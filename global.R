@@ -50,6 +50,7 @@ library(shiny.react)
 library(shiny.router)
 library(fpp2)
 library(base)
+library(vars)
 # library(ggfortify)
 
 # 1. Loading required data   ####

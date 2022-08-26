@@ -50,26 +50,6 @@ library(shinythemes)
 library(shiny.react)
 library(shiny.router)
 library(fpp2)
-# require(tidyverse)
-# require(tidymodels)
-# require(data.table)
-# require(tidyposterior)
-# require(tsibble)  #tsibble for time series based on tidy principles
-# require(fable)  #for forecasting based on tidy principles
-# require(ggfortify)  #for plotting timeseries
-# require(forecast)  #for forecast function
-# require(tseries)
-# require(chron)
-# require(lubridate)
-# require(directlabels)
-# require(zoo)
-# require(lmtest)
-# require(TTR)  #for smoothing the time series
-# require(MTS)
-# require(vars)
-# require(fUnitRoots)
-# require(lattice)
-# require(grid)
 
 
 

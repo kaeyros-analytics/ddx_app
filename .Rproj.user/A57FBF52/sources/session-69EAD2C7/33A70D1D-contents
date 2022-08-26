@@ -1,6 +1,0 @@
-urlfile <- "https://raw.githubusercontent.com/RafHo/teaching/master/geodaten_kommunizieren/datasource/lng_lat_shiny.csv"
-
-df <- read.csv(urlfile, sep = ",", header = TRUE, encoding = "UTF-8")
-
-#cloud <- dplyr::filter(df, node_label == "cloud cover")
-temp <- dplyr::filter(df, node_label == "temperature level")

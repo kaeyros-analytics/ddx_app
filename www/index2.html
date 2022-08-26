@@ -46,48 +46,39 @@
             <span class="text-logo text-center">Dynamic Pricing Calculator</span>
         </div>
         <form action="">
-            <div class="form-group row  pl-3 pr-3 ml-4">
-                <div>
-                    <label for="automplete-2" class="select1">Client_Id</label>
-                </div>
-                <div>
+            <div class="form-group row  pl-1 pr-3 ml-2">
+                <div class="filtre1">
                  <!-- <input class="form-control" id="automplete-2" placeholder="Cl_00..."> -->
                  {{selectclientid}}
                 </div>
             </div>
-            <div class="form-group row pl-3 pr-3 ml-4">
-                <div>
-                    <label for="automplete-1" class="select1">Machine_Id</label>
-                </div>
-                <div>
+            <div class="form-group row pl-1 pr-3 ml-2">
+                <div class="filtre1">
                   <!-- <input class="form-control" id="automplete-1" placeholder="M_00..."> -->
                   {{selectmachineid}}
                 </div>
             </div>
-            <div class="form-group row pl-3 pr-3 ml-4" style="margin-right: 8px;">
-                <div>
-                    <label class="select1">Start_Period</label>
-                </div>
-                <div>
-                    <div class="date-container ">
+            <div class="form-group row pl-1 pr-3 ml-2">
+                    <div class="filtre1">
                        <!-- <input id="date" type="text" />
                         <span class="date-text"></span>
                         <i class="date-icon fa fa-calendar" aria-hidden="true"></i> -->
                         {{selectdate}}
                     </div>
-                </div>
             </div>
-            <div class="form-group row pl-3 pr-3 ml-4">
-                <div>
-                    <label for="automplete-3" class="select1">Forecast_Period</label>
-                </div>
-                <div>
+            <div class="form-group row pl-1 pr-3 ml-2">
+                <div class="filtre1">
                   <!-- <input class="form-control" id="automplete-3" placeholder="3,6,12..."> -->
                   {{selectperiod}}
                 </div>
             </div>
-            <button type="submit" class="btn selectButton mt-4" style="background: #fcb900; color: #000; width: 77%;">Calculate</button>
-            <!-- {{button}} -->
+            <div class="form-group row pl-1 pr-3 ml-2">
+                <div class="selectButton">
+                  {{calculate_button}}
+                </div>
+            </div>
+            
+            <!--<button type="submit" class="btn selectButton mt-4" style="background: #fcb900; color: #000; width: 77%;">Calculate</button>-->
         </form>
 
         <!--  <div class="client form-group" id="client_id">
@@ -188,46 +179,12 @@
                 <div class="card block1">
                     <div class="card-body">
                         <div class="d-flex justify-content-center">
-                            <span style="font-weight: bold;">Dynamic Price</span><br><span
+                            <span style="font-weight: bold;">Dynamic Price Forecast</span><br><span
                                 class="text-muted text2"></span>
                         </div>
 
-                        <div>
-                            plot1
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 p-4">
-                <div class="card block1">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-center">
-                            <span style="font-weight: bold;">IoT Health Index</span><br><span
-                                class="text-muted text2"></span>
-                        </div>
-
-
-                        <div>
-                          plot 2
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="row">
-            <div class="col-lg-6 p-4">
-                <div class="card block1">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-center">
-                            <span style="font-weight: bold;">Forecast Dynamic Price</span><br><span
-                                class="text-muted text2"></span>
-                        </div>
-
-
-                        <div>
-                          plot3
+                        <div class="plot2">
+                            {{lot_health}}
                         </div>
                     </div>
                 </div>
@@ -241,8 +198,42 @@
                         </div>
 
 
-                        <div>
-                          plot4
+                        <div class="plot1">
+                           {{dynamic_price}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 p-4">
+                <div class="card block1">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-center">
+                            <span style="font-weight: bold;">Premium Price Distribution</span><br><span
+                                class="text-muted text2"></span>
+                        </div>
+
+
+                        <div class="plot3">
+                          {{map_plot}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 p-4">
+                <div class="card block1">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-center">
+                            <span style="font-weight: bold;">Gain/Losses</span><br><span
+                                class="text-muted text2"></span>
+                        </div>
+
+
+                        <div class="plot4">
+                          1200€
                         </div>
                     </div>
                 </div>

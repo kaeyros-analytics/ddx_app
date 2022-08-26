@@ -58,7 +58,7 @@ find_funs <- function(f) {
   return(results)
   
 }
-find_funs("predict")
+find_funs("causality")
 
 
 

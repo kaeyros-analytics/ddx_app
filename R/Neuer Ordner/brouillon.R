@@ -38,10 +38,17 @@ class(AirPassengers)
 mts_df_filter[, "dynamic_price" ]
 
 loti_arima <- mts_df_filter[, "dynamic_price" ] %>% forecast::auto.arima()
-loti_arima %>% forecast(h = 12) %>% forecast::autoplot()
+theme_set(theme_bw())
+fig <- loti_arima %>% forecast(h = 12) %>% forecast::autoplot() +
+  ggtitle("Time Series Plot of the Data Frame' Time-Series") +
+  theme(plot.title = element_text(hjust = 0.5)) #for centering the text
+  
+
+plotly::ggplotly(fig)
 
 flow_arima <- mts_df_filter[, "dynamic_price" ] %>% auto.arima(lambda = 0)
-flow_arima %>% forecast(h = 12) %>% autoplot()
+flow_arima %>% forecast(h = 12) %>% autoplot() +
+  labs(x="x-axis label of fig1", y="y-axis label of fig1", title="Fig1 plot")
 
 x <- 1:10
 x1 <- c(2,4,6,8,7,8,14,16,18,20)

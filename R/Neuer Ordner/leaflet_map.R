@@ -10,6 +10,7 @@ states <- geojsonio::geojson_read(file, what = "sp")
 file.exists(url_path)
 
 # INPUT IS A URL (beginning from http..)
+urlfile <- "https://raw.githubusercontent.com/RafHo/teaching/master/geodaten_kommunizieren/datasource/lng_lat_shiny.csv"
 
 url_path = "https://raw.githubusercontent.com/mlampros/DataSets/master/california.geojson"
 url_path = "https://leafletjs.com/examples/choropleth/us-states.js"
@@ -18,4 +19,4 @@ url_js = geojsonR::FROM_GeoJson(url_file_string = url_path)
 
 write(url_path, "test.json")
 library("rjson")
-json_data <- rjson::fromJSON(file= filess)
+json_data <- rjson::fromJSON(file= url_js)

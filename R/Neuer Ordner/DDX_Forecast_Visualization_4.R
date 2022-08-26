@@ -1,9 +1,11 @@
 
+
 # 0. Setting and loading packages  ####
 #_______________________________
 
 rm(list = ls(all.names = TRUE)); # activate the step before execution !!!!!!
 cat("\f");
+
 
 # setting system local encoding
 Sys.setlocale("LC_ALL", "English_United States.932") # this works perfectly ---> für japanese characters
@@ -49,8 +51,7 @@ library(shinydashboard)
 library(shinythemes)
 library(shiny.react)
 library(shiny.router)
-library(fpp2)
-# library(ggfortify)
+
 
 # 1. Loading required data   ####
 #__________________________
@@ -63,15 +64,16 @@ path_helpers <- paste(root, "/R", sep="")
 #path_helpers <- paste(root, "/codes/helpers", sep="")
 path_meta <- paste(root, "/", "meta", sep="")
 
-
 file_path <- paste(path_data, "/testdata.rds", sep="")
 system.time(df_testdata <-readRDS(file = file_path))
 str(df_testdata)
 
 
-# use parse_time in order to create standard ambiguous date format.
+# use parse_time in order to create standard unambiguous date format.
 df_testdata <- df_testdata %>%
   mutate(date = as.Date(date , format = "%Y-%m-%d"))
+
+
 
 str(df_testdata)
 
@@ -83,6 +85,8 @@ df_filter <- df_testdata %>%
   dplyr::select(lot_health_index, dynamic_price,avg_market_premium_price) %>% 
   relocate(dynamic_price, .before = lot_health_index)
 
+class(df_filter)
+
 # rescaling the variable lot_health_index
 
 # changing the scale initial vector
@@ -91,16 +95,8 @@ rescaled_lot_health_index <- scales::rescale(df_filter$lot_health_index, to = c(
 # replace the variable lot_health_index through rescaled variable rescaled_lot_health_index
 df_filter$lot_health_index <- rescaled_lot_health_index
 
-str(df_filter)
-class(df_filter)
-# visualize density distribution of the rescaled lot_health_index
-# den <- density(rescaled_lot_health_index) 
-# plot(den, frame = FALSE, col = "blue",main = "Density plot")
 
-# 2. Time series analysis  ####
-#________________________
-
-# converting a data frame into multiple time series (mts) datasets
+# subset the data frame to one client_id and one machine_id
 mts_df_filter <- stats::ts(df_filter,
                            frequency = 12,
                            start = c(2001, 1),
@@ -114,55 +110,17 @@ head(mts_df_filter)
 
 str(mts_df_filter)
 
-names(df_filter)
-# [1] "dynamic_price"            "lot_health_index"         "avg_market_premium_price"
 
-# Standard exploratory 
-
-# plot(mts_df_filter, main = "")
-
-plot(mts_df_filter[, "dynamic_price" ], main = "Dynamic price", ylab = "", xlab = "Year", col = "blue" , lwd=1.9)
-
-plot(mts_df_filter[, "lot_health_index" ], main = "Iot health index", xlab = "Year", ylab = "", col = "#CC833A" , 
-     lwd=1.9)
-
-plot(mts_df_filter[, "avg_market_premium_price" ], main = "Avg market premium price", xlab = "Year", ylab = "", 
-     col = "#F76150" , lwd=1.9)
-
-# theme_set(theme_bw())
-# autoplot(mts_train_df_testdata) +
-#   ggtitle("Time Series Plot of the Data Frame Time-Series") +
-#   theme(plot.title = element_text(hjust = 0.5)) #for centering the text
-
-theme_set(theme_bw()) 
-autoplot(mts_df_filter[, "dynamic_price" ]) +
-  ggtitle("Dynamic price") +
-  xlab("Year") +
-  ylab("") +
-  theme(plot.title = element_text(hjust = 0.5)) #for centering the text
+# Standard exploratory tools
+par(mar = c(2.5,2.5,2.5,2.5))
+plot(mts_df_filter, main = "")
 
 
 theme_set(theme_bw()) 
-autoplot(mts_df_filter[, "lot_health_index" ]) +
-  ggtitle("Iot health index") +
-  xlab("Year") +
-  ylab("") +
+autoplot(mts_df_filter) +
+  ggtitle("Time Series Plot of the Data Frame' Time-Series") +
   theme(plot.title = element_text(hjust = 0.5)) #for centering the text
 
-theme_set(theme_bw()) 
-autoplot(mts_df_filter[, "avg_market_premium_price" ]) +
-  ggtitle("Avg market premium price") +
-  xlab("Year") +
-  ylab("") +
-  theme(plot.title = element_text(hjust = 0.5)) #for centering the text
-
-
-
-
-
-# Main packages - problem: both have different functions VAR
-## Testing for stationarity
-### tseries - standard test adt.test
 apply(mts_df_filter, 2, tseries::adf.test)
 #p-value = 0.06213  > 0.05 we conclude that the time series is nonstationary
 
@@ -174,22 +132,27 @@ apply(mts_df_filter, 2, fUnitRoots::adfTest,
 
 # p-value = 0.06213 > 0.05 we conclude that the time series is nonstationary
 
-# Differencing the whole mts mts_df_filter[, "dynamic_price" ]
-#stnry1 <- diffM(mts_df_filter) #difference operation on a vector of time series. Default order of differencing is 1.
+# Differencing the whole mts
+stnry1 <- MTS::diffM(mts_df_filter) #difference operation on a vector of time series. Default order of differencing is 1.
 
-stnry2 <- log1p(mts_df_filter) 
+# Error in vars::VAR(stnry1, lag.max = 10, ic = "AIC", type = "none") : 
+#   The matrix 'y' should contain at least two variables. For univariate analysis consider ar() and arima() in package stats.
+
+#stnry2 <- log1p(mts_df_filter) #difference operation on a vector of time series. Default order of differencing is 1.
+
+#log.test <- log1p(stnry1)
 
 # Retest
-apply(stnry2, 2, tseries::adf.test)
+apply(stnry1, 2, tseries::adf.test)
 
 ## VAR modeling
-plot.ts(stnry2)
+plot.ts(stnry1)
 
 # Lag order identification
 #We will use two different functions, from two different packages to identify the lag order for the VAR model. Both functions are quite similar to each other but differ in the output they produce. vars::VAR is a more powerful and convinient function to identify the correct lag order. 
-vars::VARselect(stnry2, 
+vars::VARselect(stnry1, 
           type = "none", #type of deterministic regressors to include. We use none becasue the time series was made stationary using differencing above. 
-          lag.max = 1) #highest lag order
+          lag.max = 10) #highest lag order
 
 # $selection
 # AIC(n)  HQ(n)  SC(n) FPE(n) 
@@ -216,17 +179,23 @@ vars::VARselect(log1p(mts_df_filter),
 
 
 # Creating a VAR model with vars
-var.a.mts_df_filter <- vars::VAR(stnry2,
+var.a.mts_df_filter <- vars::VAR(stnry1,
                                  lag.max = 10, #highest lag order for lag length selection according to the choosen ic
                                  ic = "AIC", #information criterion
                                  type = "none") #type of deterministic regressors to include
 
 
 # Creating a VAR model with vars
-var.a.mts_df_filter <- vars::VAR(log1p(mts_df_filter[, "dynamic_price" ]),
+var.a.mts_df_filter <- vars::VAR(log1p(mts_df_filter),
                    lag.max = 1, #highest lag order for lag length selection according to the choosen ic
                    ic = "AIC", #information criterion
                    type = "none") #type of deterministic regressors to include
+
+# Creating a VAR model with vars
+var.a.mts_df_filter <- vars::VAR(mts_df_filter,
+                                 lag.max = 1, #highest lag order for lag length selection according to the choosen ic
+                                 ic = "AIC", #information criterion
+                                 type = "none") #type of deterministic regressors to include
 
 # var.a.mts_df_filter <- vars::VAR(mts_df_filter,
 #                                  lag.max = 8, #highest lag order for lag length selection according to the choosen ic
@@ -245,18 +214,26 @@ var.a.mts_df_filter$datamat
 #selecting the variables ot_health_index, dynamic_price,avg_market_premium_price
 # Granger test for causality
 #for causality function to give reliable results we need all the variables of the multivariate time series to be stationary. 
-vars::causality(var.a.mts_df_filter, #VAR model
+causality(var.a.mts_df_filter, #VAR model
           cause = c("dynamic_price")) #cause variable. If not specified then first column of x is used. Multiple variables can be used. 
 
 # we forecast over a short horizon because beyond short horizon prediction becomes unreliable or uniform
-fcast1 = stats::predict(var.a.mts_df_filter, n.ahead = 12)
+fcast1 = stats::predict(var.a.mts_df_filter, n.ahead = 100, df_testdata$date)
 #par(mfrow = c(0,0))
 par(mar = c(2.5,2.5,2.5,2.5))
-#par(mfrow = c(2, 2))
-plot(fcast1[, "dynamic_price"])
+
+#plot(fcast1)
+plot(fcast1)
 
 
-# Forecasting the dynamic_price
+plot(fcast1, which = fcast1[["model"]][["varresult"]][["lot_health_index"]])
+
+#plot(var.a.mts_df_filter[["varresult"]][["dynamic_price"]][["model"]][["dynamic_price.l1"]])
+
+
+fcast1 = stats::predict(var.a.mts_df_filter, n.ahead = 100, df_testdata$date)
+
+# Forecasting the DAX index
 dynamic_price = fcast1$fcst[1]; dynamic_price # type list
 
 # Extracting the forecast column

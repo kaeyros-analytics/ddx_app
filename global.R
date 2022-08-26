@@ -49,6 +49,8 @@ library(shinythemes)
 library(shiny.react)
 library(shiny.router)
 library(fpp2)
+library(base)
+library(vars)
 # library(ggfortify)
 
 # 1. Loading required data   ####
@@ -71,7 +73,8 @@ system.time(df_testdata <-readRDS(file = file_path))
 
 # use parse_time in order to create standard ambiguous date format.
 df_testdata <- df_testdata %>%
-  mutate(date = as.Date(date , format = "%Y-%m-%d")) 
+  mutate(date = as.Date(date , format = "%Y-%m-%d"),
+         year_ = lubridate::year(date)) 
 
 # rescaling the variable lot_health_index
 
@@ -90,4 +93,18 @@ df_testdata$lot_health_index <- rescaled_lot_health_index
 #           machine_id == "M_001") %>%
 #   dplyr::select(lot_health_index, dynamic_price,avg_market_premium_price) %>% 
 #   relocate(dynamic_price, .before = lot_health_index)
+
+
+# filter modules ### filter_client_id.R
+eval(parse('./R/modules/filter_client_id.R', encoding="UTF-8"))
+eval(parse('./R/modules/filter_machine_id.R', encoding="UTF-8"))
+eval(parse('./R/modules/filter_daterange.R', encoding="UTF-8"))
+eval(parse('./R/modules/filter_orecast_period.R', encoding="UTF-8"))
+eval(parse('./R/modules/calculate_button.R', encoding="UTF-8"))
+
+eval(parse('./R/modules/dynamic_price_forecast.R', encoding="UTF-8"))
+eval(parse('./R/modules/lot_health_forecast.R', encoding="UTF-8"))
+eval(parse('./R/modules/map_graph.R', encoding="UTF-8"))
+#eval(parse('./R/modules/map_graph.R', encoding="UTF-8"))
+
 

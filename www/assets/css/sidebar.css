@@ -75,8 +75,9 @@ body {
     max-width: 100% !important;
   }
   
-  .selectButton{
+  .selectButton .shiny-bound-input{
     width: 110px !important;
+    max-width: 100% !important;
   }
 }
 
@@ -116,7 +117,8 @@ input#custom-input-date, label {
 }
 
 .selectButton {
-    width: 165px !important;
+    width: 200px !important;
+    max-width: 100%;
 }
 .selectButton .shiny-bound-input{
     background: #fcb900 !important;
@@ -125,4 +127,6 @@ input#custom-input-date, label {
     margin-top: 3px !important;
     font-size: 1.1rem !important;
     margin-left: 12% !important;
+    width: 200px !important;
+    max-width: 100%;
 }

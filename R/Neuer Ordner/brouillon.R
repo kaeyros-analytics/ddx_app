@@ -10,17 +10,17 @@ PCA1 <- prcomp(ex[ , 3:4], scale = TRUE)
 library(ggfortify)
 autoplot(PCA1, data = ex, colour = "year", 
          loadings.label = T,  frame.colour="treat.year", frame=T)+theme(legend.position = "none")
-
-Registered S3 method overwritten by 'GGally':
-  method from   
-+.gg   ggplot2
-
-Registered S3 method overwritten by 'GGally':
-  method from   
-+.gg   ggplot2
-Registered S3 method overwritten by 'quantmod':
-  method            from
-as.zoo.data.frame zoo
+# 
+# Registered S3 method overwritten by 'GGally':
+#   method from   
+# +.gg   ggplot2
+# 
+# Registered S3 method overwritten by 'GGally':
+#   method from   
+# +.gg   ggplot2
+# Registered S3 method overwritten by 'quantmod':
+#   method            from
+# as.zoo.data.frame zoo
 
 remove.packages("forecast")
 
@@ -38,10 +38,17 @@ class(AirPassengers)
 mts_df_filter[, "dynamic_price" ]
 
 loti_arima <- mts_df_filter[, "dynamic_price" ] %>% forecast::auto.arima()
-loti_arima %>% forecast(h = 12) %>% forecast::autoplot()
+theme_set(theme_bw())
+fig <- loti_arima %>% forecast(h = 12) %>% forecast::autoplot() +
+  ggtitle("Time Series Plot of the Data Frame' Time-Series") +
+  theme(plot.title = element_text(hjust = 0.5)) #for centering the text
+  
+
+plotly::ggplotly(fig)
 
 flow_arima <- mts_df_filter[, "dynamic_price" ] %>% auto.arima(lambda = 0)
-flow_arima %>% forecast(h = 12) %>% autoplot()
+flow_arima %>% forecast(h = 12) %>% autoplot() +
+  labs(x="x-axis label of fig1", y="y-axis label of fig1", title="Fig1 plot")
 
 x <- 1:10
 x1 <- c(2,4,6,8,7,8,14,16,18,20)
@@ -83,3 +90,26 @@ lines(, type = "l", col = "blue")
 lines(smoothing(x, method = "loess"), type = "l", col = "red")
 
 
+
+
+set.seed(1)
+xz = zoo(ts(rnorm(20), frequency = 4, start = c(1959, 2)))
+yz = zoo(ts(rnorm(20), frequency = 4, start = c(1959, 2)))
+# Basic approach
+plot(xz)
+lines(yz, col = "red")
+# Panels
+plot.zoo(cbind(xz, yz))
+# Overplotted
+plot.zoo(cbind(xz, yz), 
+         plot.type = "single", 
+         col = c("red", "blue"))
+
+plot.zoo(cbind(xz, yz), 
+         plot.type = "multiple", 
+         col = c("red", "blue"))
+
+set.seed(1)
+x = ts(rnorm(20), frequency = 4, start = c(1959, 2))
+y = ts(rnorm(20), frequency = 4, start = c(1959, 2))
+ts.plot(x, y, gpars = list(col = c("black", "red")))

@@ -58,7 +58,7 @@ find_funs <- function(f) {
   return(results)
   
 }
-find_funs("FROM_GeoJson")
+find_funs("causality")
 
 
 

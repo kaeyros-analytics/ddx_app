@@ -1,9 +1,9 @@
 
 server <- function(input, output, session) {
   
-  # callModule(user_location_server, id = "selectinput")
-  # callModule(purchased_service_server, id = "selectinput")
-  # callModule(purchased_offer_server, id = "selectinput")
+   callModule(dynamic_price_server, id = "forecast")
+   callModule(lot_health_index_server, id = "forecast")
+   callModule(map_town_server, id = "forecast")
   # callModule(connection_time_server, id = "selectinput")
   # callModule(total_purchased_service_box1_server, id = "selectinput")
   # callModule(location_most_purchase_box2_server, id = "selectinput")

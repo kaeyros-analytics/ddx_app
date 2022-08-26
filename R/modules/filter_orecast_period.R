@@ -12,7 +12,7 @@ forecast_period_ui <- function(id) {
   tagList(
     selectInput(inputId = ns("selected_forecast_period"), "Forecast_Period",
                 choices = sort(c(3, 6, 12)),
-                selected = 1,
+                selected = 12,
                 selectize = TRUE) # DDX_Visualization
   ) # end taList
   

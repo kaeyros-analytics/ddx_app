@@ -85,7 +85,7 @@ df_testdata <- df_testdata %>%
 rescaled_lot_health_index <- scales::rescale(df_testdata$lot_health_index, to = c(20, 100))
 
 # replace the variable lot_health_index through rescaled variable rescaled_lot_health_index
-df_filter$df_testdata <- rescaled_lot_health_index
+df_testdata$lot_health_index <- rescaled_lot_health_index
 
 str(df_testdata)
 
@@ -93,7 +93,7 @@ str(df_testdata)
 df_filter <- df_testdata %>%
   filter( client_id == "client_0",
           machine_id == "M_001") %>%
-  dplyr::select(lot_health_index, dynamic_price,avg_market_premium_price, date) %>% 
+  dplyr::select(lot_health_index, dynamic_price,avg_market_premium_price, date, fixed_price, localization_lon, localization_lat) %>% 
   relocate(dynamic_price, .before = lot_health_index)
 
 # rescaling the variable lot_health_index
@@ -106,7 +106,7 @@ df_filter <- df_testdata %>%
 
 class(df_filter)
 
-mts_df_filter <- stats::ts(df_filter,
+mts_df_filter <- stats::ts(df_filter[- c(4,5,6,7)],
                            frequency = 12,
                            start = c(2001, 1),
                            end = c(2021, 12))
@@ -221,7 +221,7 @@ fcast1 = stats::predict(var.a.mts_df_filter, n.ahead = 12)
 par(mar = c(2.5,2.5,2.5,2.5))
 plot(fcast1)
 
-
+fcast1$endog
 # Forecasting the dynamic_price
 dynamic_price = fcast1$fcst[1]; dynamic_price # type list
 

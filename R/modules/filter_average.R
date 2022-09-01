@@ -2,7 +2,7 @@
 #---------------------
 # CREATE UI FUNCTION
 #---------------------
-calculate_button_ui <- function(id) {
+average_fixed_price_ui <- function(id) {
   
   # NS(): Assign module elements to a unique namespace
   # `NS(id)` returns a namespace function, which was save as `ns` and will
@@ -11,11 +11,10 @@ calculate_button_ui <- function(id) {
   ns <- NS(id)
   tagList(
     tags$div(
-      class = "selectButton",
-      actionButton(inputId = ns("actionFilter"), title="", label="Calculate" )
-      
+      class = "filtre1",
+      checkboxInput(inputId = ns("average_fixed_price"), label = "Average", value = FALSE)
     )
-    
+
   ) # end taList
   
-} # end calculate_button_ui
+} # end average_fixed_price_ui

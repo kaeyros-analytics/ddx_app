@@ -95,13 +95,15 @@ df_testdata$lot_health_index <- rescaled_lot_health_index
 #   relocate(dynamic_price, .before = lot_health_index)
 
 
-# filter modules ### filter_client_id.R
+# filter modules 
 eval(parse('./R/modules/filter_client_id.R', encoding="UTF-8"))
 eval(parse('./R/modules/filter_machine_id.R', encoding="UTF-8"))
 eval(parse('./R/modules/filter_daterange.R', encoding="UTF-8"))
 eval(parse('./R/modules/filter_orecast_period.R', encoding="UTF-8"))
+eval(parse('./R/modules/filter_average.R', encoding="UTF-8"))
 eval(parse('./R/modules/calculate_button.R', encoding="UTF-8"))
 
+# plot modules
 eval(parse('./R/modules/dynamic_price_forecast.R', encoding="UTF-8"))
 eval(parse('./R/modules/lot_health_forecast.R', encoding="UTF-8"))
 eval(parse('./R/modules/map_graph.R', encoding="UTF-8"))

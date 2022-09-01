@@ -10,10 +10,13 @@ forecast_period_ui <- function(id) {
   
   ns <- NS(id)
   tagList(
-    selectInput(inputId = ns("selected_forecast_period"), "Forecast_Period",
-                choices = sort(c(3, 6, 12)),
-                selected = 1,
-                selectize = TRUE) # DDX_Visualization
+    tags$div(class = "filtre1",
+      selectInput(inputId = ns("selected_forecast_period"), "Forecast_Period",
+                  choices = c(3, 6, 12),
+                  selected = 12) # selectize = TRUE,options = list(placeholder="Please Select at Least One Project")
+      
+    )
+
   ) # end taList
   
 } # end Forecast_Period_ui

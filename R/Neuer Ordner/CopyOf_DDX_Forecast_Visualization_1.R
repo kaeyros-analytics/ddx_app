@@ -221,7 +221,7 @@ fcast1 = stats::predict(var.a.mts_df_filter, n.ahead = 12)
 par(mar = c(2.5,2.5,2.5,2.5))
 plot(fcast1)
 
-#fcast1$endog
+fcast1$endog
 # Forecasting the dynamic_price
 dynamic_price = fcast1$fcst[1]; dynamic_price # type list
 
@@ -256,17 +256,14 @@ dynamic_price_inv_dataframe <- as.data.frame(dynamic_price_inv)
 colnames(dynamic_price_inv_dataframe) <- c("x")
 head(dynamic_price_inv_dataframe)
 
-theme_set(theme_bw()) 
-p <- ggplot() + 
-  geom_line(data = as.data.frame(dynamic_price_inv_dataframe[1:240,]), mapping = aes(y = get("dynamic_price_inv_dataframe[1:240, ]"), x = seq(1, 240),
-                                                                           ), color = "green") +
+#theme_set(theme_bw()) 
+ggplot() + 
+  geom_line(data = as.data.frame(dynamic_price_inv_dataframe[1:240,]), aes(y = get("dynamic_price_inv_dataframe[1:240, ]"), x = seq(1, 240)), color = "green") +
   geom_line(data = as.data.frame(dynamic_price_inv_dataframe[241:252,]), aes(y = get("dynamic_price_inv_dataframe[241:252, ]"), x = seq(241, 252)), color = "red") +
   ggtitle("Plot of forecast of the VAR model on  time series") +
   #scale_x_date(date_breaks = "months" , date_labels = "%b-%y") + 
   theme(plot.title = element_text(hjust = 0.5)) +
   xlab("Time") + ylab("")
-
-plotly::ggplotly(p)
 
 
 ## Creating an advanced plot with visual separation
@@ -274,7 +271,7 @@ plotly::ggplotly(p)
 x = zoo(dynamic_price_inv)
 
 # Advanced xyplot from lattice
-zoo::xyplot(x, grid=TRUE, panel = function(x, y, ...){
+lattice::xyplot(x, grid=TRUE, panel = function(x, y, ...){
   panel.xyplot(x, y, col="red", ...)
   grid.clip(x = unit(181, "native"), just=c("right"))
   panel.xyplot(x, y, col="green", ...) })

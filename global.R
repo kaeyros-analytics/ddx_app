@@ -99,7 +99,8 @@ df_testdata$lot_health_index <- rescaled_lot_health_index
 eval(parse('./R/modules/filter_client_id.R', encoding="UTF-8"))
 eval(parse('./R/modules/filter_machine_id.R', encoding="UTF-8"))
 eval(parse('./R/modules/filter_daterange.R', encoding="UTF-8"))
-eval(parse('./R/modules/filter_orecast_period.R', encoding="UTF-8"))
+eval(parse('./R/modules/filter_forecast_period.R', encoding="UTF-8"))
+eval(parse('./R/modules/filter_forecast_method.R', encoding="UTF-8"))
 eval(parse('./R/modules/filter_average.R', encoding="UTF-8"))
 eval(parse('./R/modules/calculate_button.R', encoding="UTF-8"))
 

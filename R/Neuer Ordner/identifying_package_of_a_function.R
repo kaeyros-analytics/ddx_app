@@ -58,7 +58,7 @@ find_funs <- function(f) {
   return(results)
   
 }
-find_funs("add_ribbons")
+find_funs("VARMA")
 
 
 

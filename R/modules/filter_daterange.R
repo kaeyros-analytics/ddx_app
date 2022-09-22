@@ -11,10 +11,10 @@ daterange_ui <- function(id) {
   ns <- NS(id)
   tagList(
     dateRangeInput(inputId = ns("daterange"), "Start_Period",
-                   start = as.Date("2001-01-31"),
+                   start = as.Date("2005-01-31"),
                    #start  = min(df_testdata$date),
                    #end    = max(df_testdata$date),
-                   end = as.Date("2021-12-31"),
+                   end = as.Date("2019-12-31"),
                    min    = min(df_testdata$date),
                    max    = max(df_testdata$date),
                     

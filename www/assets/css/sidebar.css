@@ -29,11 +29,11 @@ body {
     text-align: center;
     margin-bottom: 17px;
     margin-top: 0px;
-    margin-left: -23px;
+    margin-left: 0px;
 }
 
 .text-logo {
-    font-size: 1.25rem;
+    font-size: 1.10rem;
     font-style: normal;
     color: #f9d957;
     font-weight: bolder;

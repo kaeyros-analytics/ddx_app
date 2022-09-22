@@ -58,7 +58,8 @@ $('.menu').on('scroll', function() {
 		$(leftPaddle).removeClass('hidden');
 		$(rightPaddle).removeClass('hidden');
 	} else if (menuPosition >= menuEndOffset) {
-        console.log("menuPosition" + menuPosition + ", ")
+        console.log("menuPosition " + menuPosition + ", ")
+        console.log("menuEndOffset " + menuEndOffset + ", ")
 		$(leftPaddle).removeClass('hidden');
 		$(rightPaddle).addClass('hidden');
 }

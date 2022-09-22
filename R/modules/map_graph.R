@@ -22,7 +22,7 @@ map_town_server <- function(input, output, session) {
                                             filter(client_id == input$selected_client_id,
                                                    machine_id == input$selected_machine_id,
                                                    date >= input$daterange[1] & date <= input$daterange[2]) %>%
-                                            dplyr::select(lot_health_index, dynamic_price,avg_market_premium_price,fixed_price, year_, localization_lon, 
+                                            dplyr::select(lot_health_index, dynamic_pricing, fixed_premium_rate, year_, localization_lon, 
                                                           localization_lat, client_id, machine_id)
                                         }, ignoreNULL = FALSE
                                         
@@ -55,7 +55,7 @@ map_town_server <- function(input, output, session) {
                  popup=~paste(
                    "<b>Client_id </b>: ", as.character(filter_map()$client_id), "<br/>",
                    "<b> Machine_id </b>: ", as.character(filter_map()$machine_id), "<br/>",
-                   "<b> Fixed Premium </b>: ", round(unique(filter_map()$fixed_price), 2)))
+                   "<b> Fixed Premium </b>: ", round(unique(filter_map()$fixed_premium_rate), 2)))
     
   }) # end output$map
   

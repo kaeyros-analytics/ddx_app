@@ -103,15 +103,25 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
+                        <!-- <li class="nav-item ">
                             <a class="nav-link" href="index2.html">Home <span class="sr-only">(current)</span></a>
+                        </li> -->
+
+                        <li class="nav-item active">
+                            <div class="dropdown">
+                                <button class="dropbtn">Menu</button>
+                                <div class="dropdown-content">
+                                    <a href="index2.html">Dynamic_price forecast</a>
+                                    <a href="#">EDA </a>
+                                    <a href="#">About</a>
+                                </div>
+                            </div>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Tab 1</a>
+                            <a class="nav-link" href="#">Contact us</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Tab 2</a>
-                        </li>
+                     
                     </ul>
                     <div>
                         <a class="x-logo-init" href="https://datadrivenx.com">
@@ -128,32 +138,32 @@
                 </div>
             </nav>
         </div>
-        <canvas id="canvas1"></canvas>
+        <canvas id="canvas1" style="height: 140% !important;"></canvas>
 
-        <div class="row" style="margin-top: 30px;">
-            <div class="col-md-3">
-                <div class="card" style="margin-left: 10px;">
+        <div class="row" style="margin-top: 28px;">
+            <div class="col-md-3 p-4">
+                <div class="card" style="margin-top: 2px;">
                     <div class="card-body">
                         <h5 class="text-center">Variable 1</h5>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card" style="margin-right: 10px;">
+            <div class="col-md-3 p-4">
+                <div class="card" style=" margin-top: 2px;">
                     <div class="card-body">
                         <h5 class="text-center">Variable 2</h5>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card"  style="margin-left: 10px;">
+            <div class="col-md-3 p-4">
+                <div class="card"  style=" margin-top: 2px;">
                     <div class="card-body">
                         <h5 class="text-center">Variable 3</h5>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card" style="margin-right: 10px;">
+            <div class="col-md-3 p-4">
+                <div class="card" style="margin-top: 2px;">
                     <div class="card-body">
                         <h5 class="text-center">Variable 4</h5>
                     </div>
@@ -194,7 +204,7 @@
 
         </div>
 
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-lg-6 p-4">
                 <div class="card block1">
                     <div class="card-body">
@@ -226,7 +236,7 @@
                 </div>
             </div>
 
-        </div>
+        </div> -->
     </div>
     <script src="assets/js/file.js"></script>
     <script src="assets/js/navbar.js"></script>

@@ -121,3 +121,13 @@ input#custom-input-date:focus {
     text-align: center;
     margin-top: 130px;
 }
+
+label .test1 {
+  display: none;
+}
+label:hover .firstRadio {
+  display: none;
+}
+label:hover .test1{
+  display: inline;
+}

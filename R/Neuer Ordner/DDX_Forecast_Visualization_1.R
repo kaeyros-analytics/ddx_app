@@ -93,7 +93,7 @@ str(df_testdata)
 df_filter <- df_testdata %>%
   filter( client_id == "client_0",
           machine_id == "M_001") %>%
-  dplyr::select(lot_health_index, dynamic_price,avg_market_premium_price, date, fixed_price, localization_lon, localization_lat) %>% 
+  dplyr::select(lot_health_index, dynamic_price, avg_market_premium_price, date, fixed_price, localization_lon, localization_lat) %>% 
   relocate(dynamic_price, .before = lot_health_index)
 
 # rescaling the variable lot_health_index
@@ -201,7 +201,7 @@ var.a.mts_df_filter <- vars::VAR(log1p(mts_df_filter),
                    type = "none") #type of deterministic regressors to include
 
 
-summary(var.a.mts_df_filter) 
+summary(var.a.mts_df_filter)
 
 # Residual diagnostics
 #serial.test function takes the VAR model as the input
@@ -221,9 +221,15 @@ fcast1 = stats::predict(var.a.mts_df_filter, n.ahead = 12)
 par(mar = c(2.5,2.5,2.5,2.5))
 plot(fcast1)
 
-fcast1$endog
+#fcast1$endog
 # Forecasting the dynamic_price
-dynamic_price = fcast1$fcst[1]; dynamic_price # type list
+dynamic_price = fcast1$fcst[1]
+
+dynamic_price # type list
+
+class(dynamic_price)
+# [1] "list"
+
 
 # Extracting the forecast column
 x = dynamic_price$dynamic_price[,1]
@@ -234,17 +240,17 @@ x = dynamic_price$dynamic_price[,1]
 #To get the data to the original scale we invert the time series
 #since the values are just difference from the previous value, to get the values on the original scale we add the last value from the DAX time series to the predicted values.
 #the plot of the predicted values will also show that over longer horizon the predicted values are not reliable
-test <- tail(mts_df_filter[, "dynamic_price"])[6]
-x2 = cumsum(x) + test 
-par(mar = c(2.5,2.5,1,2.5)) #bottom, left, top, and right
-plot.ts(x2)
+# test <- tail(mts_df_filter[, "dynamic_price"])[6]
+# x2 = cumsum(x) + test 
+# par(mar = c(2.5,2.5,1,2.5)) #bottom, left, top, and right
+# plot.ts(x2)
 
 x2 = exp(x) - 1
 
 
 
 # Adding data and forecast to one time series
-dynamic_price_inv =ts(c(df_filter[,1], x2),
+dynamic_price_inv <- ts(c(df_filter[,1], x2),
            start = c(2001,1),
            end = c(2021,12),
            frequency = 12)
@@ -256,14 +262,20 @@ dynamic_price_inv_dataframe <- as.data.frame(dynamic_price_inv)
 colnames(dynamic_price_inv_dataframe) <- c("x")
 head(dynamic_price_inv_dataframe)
 
-#theme_set(theme_bw()) 
-ggplot() + 
-  geom_line(data = as.data.frame(dynamic_price_inv_dataframe[1:240,]), aes(y = get("dynamic_price_inv_dataframe[1:240, ]"), x = seq(1, 240)), color = "green") +
-  geom_line(data = as.data.frame(dynamic_price_inv_dataframe[241:252,]), aes(y = get("dynamic_price_inv_dataframe[241:252, ]"), x = seq(241, 252)), color = "red") +
+theme_set(theme_bw()) 
+p <- ggplot() + 
+  geom_line(data = as.data.frame(dynamic_price_inv_dataframe[1:240,]), mapping = aes(y = get("dynamic_price_inv_dataframe[1:240, ]"), x = seq(1, 240), 
+                                                                                     ), color = "green") +
+  geom_line(data = as.data.frame(dynamic_price_inv_dataframe[241:252,]), aes(y = get("dynamic_price_inv_dataframe[241:252, ]"), x = seq(241, 252)),
+            color = "red") +
   ggtitle("Plot of forecast of the VAR model on  time series") +
   #scale_x_date(date_breaks = "months" , date_labels = "%b-%y") + 
   theme(plot.title = element_text(hjust = 0.5)) +
   xlab("Time") + ylab("")
+
+plotly::ggplotly(p)
+
+plotly::ggplotly(p, tooltip = "text") 
 
 
 ## Creating an advanced plot with visual separation
@@ -271,7 +283,7 @@ ggplot() +
 x = zoo(dynamic_price_inv)
 
 # Advanced xyplot from lattice
-lattice::xyplot(x, grid=TRUE, panel = function(x, y, ...){
+zoo::xyplot(x, grid=TRUE, panel = function(x, y, ...){
   panel.xyplot(x, y, col="red", ...)
   grid.clip(x = unit(181, "native"), just=c("right"))
   panel.xyplot(x, y, col="green", ...) })
@@ -293,3 +305,158 @@ autoplot(dynamic_price_inv) +
 
 
 
+plot_dynamic_price <- plot_ly() 
+plot_dynamic_price <- plot_dynamic_price %>% add_trace(data = as.data.frame(dynamic_price_inv_dataframe[1:240,]), x = ~seq(1, 240), y = ~get("dynamic_price_inv_dataframe[1:240, ]"),
+                                                       mode = 'lines', line = list(color = "#2B7A0B"),
+                                                       hovertext = paste('Time: ',"<b>",seq(1, 240), "</b>",
+                                                                         '<br>Dynamic price:',"<b>",round(dynamic_price_inv_dataframe[1:240, ],2), " € </b>"),
+                                                       hoverinfo = 'text') 
+plot_dynamic_price <- plot_dynamic_price %>% add_trace(data = as.data.frame(dynamic_price_inv_dataframe[241:252,]), x = ~seq(241, 252), y = ~get("dynamic_price_inv_dataframe[241:252, ]"),
+                                                       mode = 'lines', line = list(color = "#ff0000"),
+                                                       hovertext = paste('Time: ',"<b>",seq(241, 252), "</b>",
+                                                                         '<br>Dynamic price:',"<b>",round(dynamic_price_inv_dataframe[241:252, ],2), " € </b>"),
+                                                       hoverinfo = 'text',
+                                                       
+                                                       showlegend = F) 
+
+plot_dynamic_price <- plot_dynamic_price %>% layout(title = "",
+                                                    xaxis = list(title = "Time"),
+                                                    yaxis = list (title = "Dynamic price in €"))#%>%
+plot_dynamic_price <- plot_dynamic_price %>%
+  config(displayModeBar = T, displaylogo = FALSE, modeBarButtonsToRemove = list(
+    'sendDataToCloud',
+    #'toImage',
+    #'autoScale2d',
+    'toggleSpikelines',
+    'resetScale2d',
+    'lasso2d',
+    'zoom2d',
+    'pan2d',
+    'select2d'#,
+    #'hoverClosestCartesian'#,
+    #'hoverCompareCartesian'
+  ),
+  scrollZoom = T)
+
+
+
+plot_dynamic_price <- plot_dynamic_price %>% add_lines(data =df_filter, y = df_filter$fixed_price, x = seq(1, nrow(df_filter)), 
+                                                       line = list(color = "#E8AA42"), hoverinfo = 'text',
+                                                       inherit = FALSE, showlegend = FALSE)
+plot_dynamic_price <- plot_dynamic_price %>% add_annotations(x = 50, y = df_filter$fixed_price[1] + 0.01, 
+                                                             text = paste("fixed premium = ", round(df_filter$fixed_price[1], 2), " €", sep = ""),
+                                                             showarrow  = F)
+
+plot_dynamic_price
+
+##########################
+
+# subset the data frame
+df_filter <- df_testdata %>%
+  filter(client_id == "client_0",
+         machine_id == "M_001") %>%
+  #date >= input$daterange[1] & date <= input$daterange[2]) %>%
+  dplyr::select(lot_health_index, dynamic_price,avg_market_premium_price, date, year_) %>%
+  relocate(dynamic_price, .before = lot_health_index)
+
+
+mts_df_filter <- stats::ts(df_filter[, -c(4,5)],
+                           frequency = 12,
+                           start = c(min(df_filter$year_), 1),
+                           end = c(max(df_filter$year_), 12))
+
+
+
+# Creating a VAR model with vars
+var.a.mts_df_filter <- vars::VAR(log1p(mts_df_filter),
+                                 lag.max = 1, #highest lag order for lag length selection according to the choose AIC
+                                 ic = "AIC", #information criterion
+                                 type = "none") #type of deterministic regressors to include
+
+
+#fcast1 = stats::predict(var.a.mts_df_filter, n.ahead = input$selected_forecast_period) 
+fcast1 = stats::predict(var.a.mts_df_filter, n.ahead = 12)
+
+#browser() 
+
+# Forecasting the dynamic_price
+lot_health = fcast1$fcst[2] # type list
+
+# Extracting the forecast column
+x_predict. = lot_health$lot_health_index[,1]
+
+# Inverting the log1p
+#To get the data to the original scale we invert the time series, to get the values on the original scale 
+#we add the last value from the variable dynamic_price time series to the predicted values.
+x2_predict. = exp(x_predict.) - 1
+
+# Adding data and forecast to one time series
+lot_health_inv =ts(c(df_filter[,2], x2_predict.),
+                   start = c(min(df_filter$year_), 1),
+                   end = c(max(df_filter$year_), 12),
+                   frequency = 12)
+#plot(dynamic_price_inv22)
+
+#convert lot_health_inv to data frame and set a name from the column 
+lot_health_inv_dataframe <- as.data.frame(lot_health_inv) 
+colnames(lot_health_inv_dataframe) <- c("x")
+#head(dynamic_price_inv_dataframe)
+
+#choose a part of data frame for each forecast period
+nbr_row1 <- nrow(lot_health_inv_dataframe)
+n_period1 <- as.numeric(12)
+
+n_11 <- nbr_row1 - n_period1
+n_22 <- nbr_row1 - n_period1 + 1 
+#length(df_filter$fixed_price)
+
+ggplot2::theme_set(theme_bw()) 
+plot_dynamic_price <- ggplot() + 
+  geom_line(data = as.data.frame(lot_health_inv_dataframe[1:n_11,]), aes(y = get("lot_health_inv_dataframe[1:n_11, ]"), 
+                                                                         x = seq(1, n_11)), color = "#7879FF", size=0.71) +
+  geom_line(data = as.data.frame(lot_health_inv_dataframe[n_22:nbr_row1,]), aes(y = get("lot_health_inv_dataframe[n_22:nbr_row1, ]"), 
+                                                                                x = seq(n_22, nbr_row1)), color = "red", size=0.71) +
+  ggtitle("") + # Plot of forecast of the VAR model on  time series
+  #scale_x_date(date_breaks = "months" , date_labels = "%b-%y") + 
+  theme(plot.title = element_text(hjust = 0.5)) +
+  xlab("Time") + ylab("")
+
+plot_dynamic_price
+
+
+plot_lot_health_index <- plot_ly() 
+plot_lot_health_index <- plot_lot_health_index %>% add_trace(data = as.data.frame(lot_health_inv_dataframe[1:n_11,]),  
+                                                             x = ~seq(1, n_11), y = ~get("lot_health_inv_dataframe[1:n_11, ]"),
+                                                             mode = 'lines', line = list(color = "#2B7A0B"),
+                                                             hovertext = paste('Time: ',"<b>",seq(1, n_11), "</b>",
+                                                                               '<br>Iot health index:',"<b>",
+                                                                               round(lot_health_inv_dataframe[1:n_11,],2), "</b>"),
+                                                             hoverinfo = 'text') 
+plot_lot_health_index <- plot_lot_health_index %>% add_trace(data = as.data.frame(lot_health_inv_dataframe[n_22:nbr_row1,]),  
+                                                             x = ~seq(n_22, nbr_row1), y = ~get("lot_health_inv_dataframe[n_22:nbr_row1, ]"),
+                                                             mode = 'lines', line = list(color = "#ff0000"),
+                                                             hovertext = paste('Time: ',"<b>",seq(n_22, nbr_row1), "</b>",
+                                                                               '<br>Iot health index:',"<b>",
+                                                                               round(lot_health_inv_dataframe[n_22:nbr_row1,],2), "</b>"),
+                                                             hoverinfo = 'text', showlegend = F)
+plot_lot_health_index <- plot_lot_health_index %>% layout(title = "",
+                                                          xaxis = list(title = "Time"),
+                                                          yaxis = list (title = ""))
+plot_lot_health_index <- plot_lot_health_index %>%
+  config(displayModeBar = T, displaylogo = FALSE, modeBarButtonsToRemove = list(
+    'sendDataToCloud',
+    #'toImage',
+    #'autoScale2d',
+    'toggleSpikelines',
+    'resetScale2d',
+    'lasso2d',
+    'zoom2d',
+    'pan2d',
+    'select2d'#,
+    #'hoverClosestCartesian'#,
+    #'hoverCompareCartesian'
+  ),
+  scrollZoom = T)
+
+
+plot_lot_health_index

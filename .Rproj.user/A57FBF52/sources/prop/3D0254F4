@@ -1,7 +1,8 @@
 {
     "source_window_id": "",
     "Source": "Source",
-    "cursorPosition": "7,83",
+    "cursorPosition": "86,0",
     "scrollLine": "0",
-    "ignored_words": "japanese,für\n"
+    "ignored_words": "japanese,für,rescaled,rescaling,testdata,df,str\n",
+    "docOutlineVisible": "0"
 }

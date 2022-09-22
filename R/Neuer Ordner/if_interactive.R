@@ -173,6 +173,8 @@ server <- function(input, output, session) {
   
 }
 
+##
+
 if (interactive()){
   library(shiny)
   library(leaflet)
@@ -305,7 +307,7 @@ if(interactive()){
       column(3,
              radioButtons("radio", h3("Radio buttons"),
                           choices = list("Choice 1" = 1, "Choice 2" = 2,
-                                         "Choice 3" = 3),selected = 1)),
+                                         "Choice 3" = 3), inline = FALSE, selected = 2)),
       
       column(3,
              selectInput("select", h3("Select box"), 
@@ -456,4 +458,79 @@ if(interactive()){
   shinyApp(ui, server)
 
 }
+
+# Usage with leafletProxy: 
+
+if(interactive()){
+  library(leaflet)
+  library(leaflet.multiopacity)
+  library(raster)
+  
+  ui <- shiny::fluidPage(
+    leaflet::leafletOutput("map"),
+    shiny::actionButton("addLayers", "Add Layers")
+  )
+  
+  server <- function(input, output, session) {
+    
+    # Create a map inside of your server function
+    output$map <- leaflet::renderLeaflet({
+      # Create raster example
+      r <- raster::raster(xmn = -2.8, xmx = -2.79,
+                          ymn = 54.04, ymx = 54.05,
+                          nrows = 30, ncols = 30)
+      raster::values(r) <- matrix(1:900, nrow(r), ncol(r), byrow = TRUE)
+      raster::crs(r) <- raster::crs("+init=epsg:4326")
+      
+      leaflet::leaflet() %>% 
+        leaflet::setView(lng = -2.79545, lat = 54.04321, zoom = 14) %>% 
+        leaflet::addProviderTiles("OpenStreetMap", layerId = "osm") %>%
+        leaflet.multiopacity::addOpacityControls(group = "layersToAdd", 
+                                                 renderOnLayerAdd = TRUE)
+      
+    })
+    
+    # Observer that trigger a map update
+    shiny::observeEvent(input$addLayers, {
+      leaflet::leafletProxy("map", session) %>%
+        leaflet::addRasterImage(r, colors = "viridis",
+                                layerId = "raster1",
+                                group = "layersToAdd") %>%
+        leaflet::addRasterImage(r, colors = "Spectral",
+                                layerId = "raster2",
+                                group = "layersToAdd") %>% 
+        leaflet::addAwesomeMarkers(lng = -2.79545, lat = 54.04321, 
+                                   layerId = "hospital", 
+                                   label = "Hospital",
+                                   group = "layersToAdd")
+    })
+    
+  }
+  
+  shiny::shinyApp(ui, server)
+}
+
+# leafletProxy: Send commands to a Leaflet instance in a Shiny app: https://rdrr.io/cran/leaflet/man/leafletProxy.html
+library(shiny)
+
+ui <- fluidPage(
+  leafletOutput("map1")
+)
+
+map <- leaflet() %>% addCircleMarkers(
+  lng = runif(10),
+  lat = runif(10),
+  layerId = paste0("marker", 1:10))
+
+server <- function(input, output, session) {
+  output$map1 <- renderLeaflet(map)
+  
+  observeEvent(input$map1_marker_click, {
+    leafletProxy("map1", session) %>%
+      removeMarker(input$map1_marker_click$id)
+  })
+}
+
+app <- shinyApp(ui, server)
+if (interactive()) app
 

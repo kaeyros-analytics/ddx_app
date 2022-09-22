@@ -33,8 +33,8 @@
 
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" rel="stylesheet" type="text/css" />
     
-    {{ headContent() }}
-    {{ suppressDependencies("bootstrap") }}
+    <!-- {{ headContent() }}
+    {{ suppressDependencies("bootstrap") }} -->
         
 
 </head>
@@ -80,6 +80,32 @@
               </label>
               </div>
             </div>
+            
+            
+            <div class="form-check ml-4 mr-4 mb-2">
+              <div class="radioB1">
+                {{forecast_method}}
+                <!-- <input class="form-check-input" type="radio" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                  <span class="firstRadio">Radio 1</span>
+                  <span class="test1">Nothing</span>
+                </label> -->
+              </div>
+            </div>
+            <!-- <div class="form-check ml-4 mr-4 mb-2">
+              <div class="filtre1">
+                <input class="form-check-input" type="radio" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">Radio 2</label>
+              </div>
+            </div>
+            <div class="form-check ml-4 mr-4 mb-2">
+              <div class="filtre1">
+                <input class="form-check-input" type="radio" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">Radio 3</label>
+              </div>
+            </div> -->
+            
+            
             <div class="form-group row pl-1 pr-3">
                 <div class="selectButton">
                   {{calculate_button}}
@@ -103,15 +129,25 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
+                        <!-- <li class="nav-item ">
                             <a class="nav-link" href="index2.html">Home <span class="sr-only">(current)</span></a>
+                        </li> -->
+
+                        <li class="nav-item active">
+                            <div class="dropdown">
+                                <button class="dropbtn">Menu</button>
+                                <div class="dropdown-content">
+                                    <a href="#">Dynamic_price forecast</a>
+                                    <a href="#">EDA </a>
+                                    <a href="#">About</a>
+                                </div>
+                            </div>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Tab 1</a>
+                            <a class="nav-link" href="#">Contact us</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Tab 2</a>
-                        </li>
+                     
                     </ul>
                     <div>
                         <a class="x-logo-init" href="https://datadrivenx.com">

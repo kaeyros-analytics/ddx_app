@@ -27,8 +27,8 @@ body {
 .title {
     padding: 10px;
     text-align: center;
-    margin-bottom: 42px;
-    margin-top: 9px;
+    margin-bottom: 17px;
+    margin-top: 0px;
     margin-left: -23px;
 }
 
@@ -70,6 +70,10 @@ body {
     width: 110px !important;
     max-width: 100% !important;
   }
+    .radioB1 {
+    width: 110px !important;
+    max-width: 100% !important;
+  }
   .date-container {
     width: 100px !important;
     max-width: 100% !important;
@@ -105,7 +109,10 @@ body {
    border: none !important;
    color: #fff !important;
    font-weight: bolder !important;
-   
+}
+.radioB1 {
+    width: 200px !important;
+    max-width: 100%;
 }
 
 input#custom-input-date, label {
@@ -113,7 +120,7 @@ input#custom-input-date, label {
 }
 
 .form-group {
-    margin-bottom: 1rem !important;
+    margin-bottom: 0.6rem !important;
 }
 
 .selectButton {

@@ -16,6 +16,30 @@
 
     /* color: #4cf636; */
 }
+#canvas2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 180%;
+    background: linear-gradient(135deg, rgb(4 34 34) 0%, rgb(9 148 108) 100%);
+    /* margin-left: 20%;
+    margin-top: 4%; */
+
+    /* color: #4cf636; */
+}
+#canvas3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 180%;
+    background: linear-gradient(135deg, rgb(4 34 34) 0%, rgb(9 148 108) 100%);
+    /* margin-left: 20%;
+    margin-top: 4%; */
+
+    /* color: #4cf636; */
+}
 
 .select1 {
     margin-top: 3px;
@@ -130,4 +154,9 @@ label:hover .firstRadio {
 }
 label:hover .test1{
   display: inline;
+}
+
+
+.nav-pills .nav-link.active{
+  background-color: #fcb900 !important;
 }

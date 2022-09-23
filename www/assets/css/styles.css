@@ -231,6 +231,7 @@ label:hover .test1 {
   }
 
   .paddle {
+    background-color: transparent;
     position: absolute;
     top: 0;
     bottom: 0;

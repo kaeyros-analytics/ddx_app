@@ -48,76 +48,90 @@
         <div class="title">
             <span class="text-logo text-center">Dynamic Pricing Calculator</span>
         </div>
-        <form action="">
-            <div class="form-group row  pl-1 pr-3 ml-2">
-                <div class="filtre1">
-                    <!-- <input class="form-control" id="automplete-2" placeholder="Cl_00..."> -->
-                    {{selectclientid}}
-                </div>
-            </div>
-            <div class="form-group row pl-1 pr-3 ml-2">
-                <div class="filtre1">
-                    <!-- <input class="form-control" id="automplete-1" placeholder="M_00..."> -->
-                    {{selectmachineid}}
-                </div>
-            </div>
-            <div class="form-group row pl-1 pr-3 ml-2">
-                <div class="filtre1">
-                    <!-- <input id="date" type="text" />
-                        <span class="date-text"></span>
-                        <i class="date-icon fa fa-calendar" aria-hidden="true"></i> -->
-                    {{selectdate}}
-                </div>
-            </div>
-            <div class="form-group row pl-1 pr-3 ml-2">
-                <div class="filtre1">
-                    <!-- <input class="form-control" id="automplete-3" placeholder="3,6,12..."> -->
-                    {{selectperiod}}
-                </div>
-            </div>
-            <div class="form-check ml-4 mr-4 mb-2">
-                <div class="filtre1">
-                    <!-- <input class="form-check-input" type="radio" value="" id="defaultCheck1">
-                <label class="form-check-label" for="defaultCheck1"> -->
-                    {{fixed_price}}
-                    </label>
-                </div>
-            </div>
 
-
-            <div class="form-check ml-4 mr-4 mb-2">
-                <div class="radioB1">
-                    {{forecast_method}}
-                    <!-- <input class="form-check-input" type="radio" value="" id="defaultCheck1">
-                <label class="form-check-label" for="defaultCheck1">
-                  <span class="firstRadio">Radio 1</span>
-                  <span class="test1">Nothing</span>
-                </label> -->
+        <div id="form-1">
+            <form action="">
+            
+                <div class="form-group row  pl-1 pr-3 ml-2">
+                    <div class="filtre1">
+                        {{selectclientid}}
+                    </div>
                 </div>
-            </div>
-            <!-- <div class="form-check ml-4 mr-4 mb-2">
-              <div class="filtre1">
-                <input class="form-check-input" type="radio" value="" id="defaultCheck1">
-                <label class="form-check-label" for="defaultCheck1">Radio 2</label>
-              </div>
-            </div>
-            <div class="form-check ml-4 mr-4 mb-2">
-              <div class="filtre1">
-                <input class="form-check-input" type="radio" value="" id="defaultCheck1">
-                <label class="form-check-label" for="defaultCheck1">Radio 3</label>
-              </div>
-            </div> -->
-
-
-            <div class="form-group row pl-1 pr-3">
-                <div class="selectButton">
-                    {{calculate_button}}
+    
+                <div class="form-group row pl-1 pr-3 ml-2">
+                    <div class="filtre1">
+                        {{selectmachineid}}
+                    </div>
                 </div>
-            </div>
+                <div class="form-group row pl-1 pr-3 ml-2">
+                    <div class="filtre1">
+                        {{selectdate}}
+                    </div>
+                </div>
+                <div class="form-group row pl-1 pr-3 ml-2">
+                    <div class="filtre1">
+                        {{selectperiod}}
+                    </div>
+                </div>
+                <div class="form-check ml-4 mr-4 mb-2">
+                    <div class="filtre1">
+                        {{fixed_price}}
+                        </label>
+                    </div>
+                </div>
+    
+                <div class="form-check ml-4 mr-4 mb-2">
+                    <div class="radioB1">
+                        {{forecast_method}}
+                    </div>
+                </div>
+    
+                <div class="form-group row pl-1 pr-3">
+                    <div class="selectButton">
+                        {{calculate_button}}
+                    </div>
+                </div>
+            </form>
+        </div>
 
-            <!--<button type="submit" class="btn selectButton mt-4" style="background: #fcb900; color: #000; width: 77%;">Calculate</button>-->
-        </form>
+        <div id="form-2">
+            <form action="">
+            
+                <div class="form-group row  pl-1 pr-3 ml-2">
+                    <div class="filtre1">
+                        {{selectclientid}}
+                    </div>
+                </div>
+    
+                <div class="form-group row pl-1 pr-3 ml-2">
+                    <div class="filtre1">
+                        {{selectmachineid}}
+                    </div>
+                </div>
+                <div class="form-group row pl-1 pr-3 ml-2">
+                    <div class="filtre1">
+                        {{selectdate}}
+                    </div>
+                </div>
+                <div class="form-group row pl-1 pr-3 ml-2">
+                    <div class="filtre1">
+                        {{selectperiod}}
+                    </div>
+                </div>
+                
+                <div class="form-group row pl-1 pr-3">
+                    <div class="selectButton">
+                        {{calculate_button}}
+                    </div>
+                </div>
+            </form>
+        </div>
 
+        <div id="form-3">
+            <form action="">
+            
+            </form>
+        </div>
     </div>
 
     <!-- main content -->

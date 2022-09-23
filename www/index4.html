@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DDX</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/filter.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <!-- FOntawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">
+    </script>
+
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" rel="stylesheet"
+        type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    {{ headContent() }}
+    {{ suppressDependencies("bootstrap") }}
+
+
+</head>
+
+<body>
+    <!-- sidebar -->
+    <div id="pgside">
+        <div class="title">
+            <span class="text-logo text-center">Dynamic Pricing Calculator</span>
+        </div>
+        <form action="">
+            <div class="form-group row  pl-1 pr-3 ml-2">
+                <div class="filtre1">
+                    <!-- <input class="form-control" id="automplete-2" placeholder="Cl_00..."> -->
+                    {{selectclientid}}
+                </div>
+            </div>
+            <div class="form-group row pl-1 pr-3 ml-2">
+                <div class="filtre1">
+                    <!-- <input class="form-control" id="automplete-1" placeholder="M_00..."> -->
+                    {{selectmachineid}}
+                </div>
+            </div>
+            <div class="form-group row pl-1 pr-3 ml-2">
+                <div class="filtre1">
+                    <!-- <input id="date" type="text" />
+                        <span class="date-text"></span>
+                        <i class="date-icon fa fa-calendar" aria-hidden="true"></i> -->
+                    {{selectdate}}
+                </div>
+            </div>
+            <div class="form-group row pl-1 pr-3 ml-2">
+                <div class="filtre1">
+                    <!-- <input class="form-control" id="automplete-3" placeholder="3,6,12..."> -->
+                    {{selectperiod}}
+                </div>
+            </div>
+            <div class="form-check ml-4 mr-4 mb-2">
+                <div class="filtre1">
+                    <!-- <input class="form-check-input" type="radio" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1"> -->
+                    {{fixed_price}}
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="form-check ml-4 mr-4 mb-2">
+                <div class="radioB1">
+                    {{forecast_method}}
+                    <!-- <input class="form-check-input" type="radio" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                  <span class="firstRadio">Radio 1</span>
+                  <span class="test1">Nothing</span>
+                </label> -->
+                </div>
+            </div>
+            <!-- <div class="form-check ml-4 mr-4 mb-2">
+              <div class="filtre1">
+                <input class="form-check-input" type="radio" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">Radio 2</label>
+              </div>
+            </div>
+            <div class="form-check ml-4 mr-4 mb-2">
+              <div class="filtre1">
+                <input class="form-check-input" type="radio" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">Radio 3</label>
+              </div>
+            </div> -->
+
+
+            <div class="form-group row pl-1 pr-3">
+                <div class="selectButton">
+                    {{calculate_button}}
+                </div>
+            </div>
+
+            <!--<button type="submit" class="btn selectButton mt-4" style="background: #fcb900; color: #000; width: 77%;">Calculate</button>-->
+        </form>
+
+    </div>
+
+    <!-- main content -->
+    <div id="pgmain" class="container-fluid main">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-md navbar-dark bg-transparent no-box-shadow-navbar fixed-top"
+                style="color: black!important; width: 85%;">
+                <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                    aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarsExampleDefault" style="justify-content:space-between;">
+                    <ul class="nav nav-pills" id="pills-tab" role="tablist">
+
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                                aria-selected="true">Forecast</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                                aria-selected="false">EDA</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                                aria-selected="false">About</button>
+                        </li>
+                    </ul>
+                    <div>
+                        <a class="x-logo-init" href="https://datadrivenx.com">
+                            <img width="150" height="50"
+                                src="https://datadrivenx.com/wp-content/uploads/2021/11/ddx-logo-animated-css-noopacity.svg"
+                                alt="Data Driven X by SIEMENS">
+                        </a>
+                        <a class="x-logo-white" href="https://datadrivenx.com">
+                            <img width="150" height="50"
+                                src="https://datadrivenx.com/wp-content/uploads/2021/11/datadrivenx-logo-noanimation.svg"
+                                alt="Data Driven X by SIEMENS">
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- <canvas id="canvas1"></canvas> -->
+        <div class="tab-content" id="pills-tabContent">
+
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                <canvas id="canvas1"></canvas>
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col-lg-6 p-4">
+                        <div class="card block1">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-center">
+                                    <span style="font-weight: bold;">IoT Health Index Forecast</span><br><span
+                                        class="text-muted text2"></span>
+                                </div>
+
+                                <div class="plot2">
+                                    {{lot_health}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 p-4">
+                        <div class="card block1">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-center">
+                                    <span style="font-weight: bold;">Dynamic Price Forecast</span><br><span
+                                        class="text-muted text2"></span>
+                                </div>
+
+
+                                <div class="plot1">
+                                    {{dynamic_price}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 p-4">
+                        <div class="card block1">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-center">
+                                    <span style="font-weight: bold;">Premium Price Distribution</span><br><span
+                                        class="text-muted text2"></span>
+                                </div>
+
+
+                                <div class="plot3">
+                                    {{map_plot}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 p-4">
+                        <div class="card block1">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-center">
+                                    <span style="font-weight: bold;">Gain/Losses</span><br><span
+                                        class="text-muted text2"></span>
+                                </div>
+
+
+                                <div class="plot4">
+                                    1200€
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                <canvas id="canvas2"></canvas>
+                <div class="menu-wrapper">
+                    <div class="menuVariable">
+                        <!-- <div style="width: 233px; height: 100px; border: solid 1px;">Lorem ipsum doloremque doloremque</div> -->
+                        <div class="itemVariable" id="item-1">Variable 1</div>
+                        <div class="itemVariable" id="item-2">Variable 2</div>
+                        <div class="itemVariable" id="item-3">Variable 3</div>
+                        <div class="itemVariable">Variable 4</div>
+                        <div class="itemVariable">Variable 5</div>
+                        <div class="itemVariable">Variable 6</div>
+                        <div class="itemVariable">Variable 7</div>
+                        <div class="itemVariable">Variable 8</div>
+                    </div>
+                
+                    <div class="paddles">
+                        <button class="left-paddle paddle hidden" id="left-paddle">
+                            <i class="fas fa-angle-left" style="font-size:60px; color:#117a8b; text-shadow:2px 2px 4px #17a2b885;"></i>
+                        </button>
+                        <button class="right-paddle paddle" id="right-paddle">
+                            <i class="fas fa-angle-right" style="font-size:60px;color:#117a8b;text-shadow:2px 2px 4px #17a2b885;"></i>
+                        </button>
+                    </div>
+                
+                </div>
+
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col-lg-12 p-4">
+                        <div class="card blockEDA">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-center">
+                                    <span style="font-weight: bold;">IoT Health Index Forecast</span><br><span
+                                        class="text-muted text2"></span>
+                                </div>
+
+                                <div class="plot2" id="plot1">
+                                    lot_health 1
+                                </div>
+                                <div class="plot2" id="plot2">
+                                    lot_health 2
+                                </div>
+                                <div class="plot2" id="plot3">
+                                    lot_health 3
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade  " id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                <canvas id="canvas3"></canvas>
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col-lg-12 p-4">
+                        <div class="card block1" style="height: auto !important;">
+                            <div class="card-body">
+                                <p>The DDX IoT Dynamic Pricing App is designed to support Risk Managers in the pricing setting process. It can be used to gather real-time information about internal and external factors that can have impact on the premium rate and ultimately enable Risk Manager to determine for a given client and a given machine type the optimal premium rate.</p>
+                                <p>The Application uses the PAO (Predict-Optimize) + Forecast Framework. The margin rate will be predicted in a first step as a function of various parameters such as IoT_Health_Index, competitor price, consumer confidence index, geopolitical risk index, weather, demand for industrial good, inflation rate among others.</p>
+                                <p>The Back end of the App contains a data pipeline and for data preparation/transformation for modelling purposes, a PAO-Framework using Bayes Hierarchical regression Model, a Linear Programming model for Optimization (Thompson) and a Forecast-Engine (VAR, VARMA) to forecast future premium rate s in the next 3,6, 12 months.</p>
+                                <p>The Front end contains a main tab for forecasting activities and sub-tabs showing results of the Explorative Data Analysis using predictors and target variable.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="assets/js/file.js"></script>
+    <script src="assets/js/navbar.js"></script>
+    <script src="assets/js/filter.js"></script>
+    <script src="assets/js/calendar.js"></script>
+    <script src="assets/js/horizontal-scroll-eda.js"></script>
+
+    </div>
+</body>
+
+</html>

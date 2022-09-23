@@ -136,31 +136,42 @@ label:hover .test1{
 .menu-wrapper {
 	position: relative;
 	max-width: 100%;
-	height: 100px;
+	/* height: 100px; */
 	margin: 2em auto;
-	border: 1px solid black;
-	overflow-x: hidden;
-	overflow-y: hidden;
+	/* border: 1px solid black; */
 }
 
-.menu	{
-	height: 120px;
+/* .menu	{
+	
 	background: #f3f3f3;
+	display: flex;
+  overflow-x: auto;
+} */
+
+.menu {
+  background: #f3f3f3;
 	box-sizing: border-box;
 	
 	white-space: nowrap;
 	overflow-x: auto;
 	overflow-y: hidden;
 	-webkit-overflow-scrolling: touch;
+  margin-bottom: 0;
+  overflow-x: hidden;
+	overflow-y: hidden;
 }
 
 .item {
   display: inline-block;
-  width: 100px;
-  height: 100%;
-  outline: 1px dotted gray;
-  padding: 1em;
-  box-sizing: border-box;
+  width: 233px;
+  height: 100px;
+  margin-inline: 20px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  outline: 1px solid gray;
+  padding-inline: 1em;
+  padding-top: 0em;
 }
 
 .paddles {
@@ -170,6 +181,7 @@ label:hover .test1{
 	top: 0;
 	bottom: 0;
 	width: 3em;
+  border: none!important;
 }
 .left-paddle {
 	left: 0;

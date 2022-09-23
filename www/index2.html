@@ -22,20 +22,21 @@
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">
     </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">
     </script>
 
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" rel="stylesheet" type="text/css" />
-    
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" rel="stylesheet"
+        type="text/css" />
+
     <!-- {{ headContent() }}
     {{ suppressDependencies("bootstrap") }} -->
-        
+
 
 </head>
 
@@ -48,49 +49,49 @@
         <form action="">
             <div class="form-group row  pl-1 pr-3 ml-2">
                 <div class="filtre1">
-                 <!-- <input class="form-control" id="automplete-2" placeholder="Cl_00..."> -->
-                 {{selectclientid}}
+                    <!-- <input class="form-control" id="automplete-2" placeholder="Cl_00..."> -->
+                    {{selectclientid}}
                 </div>
             </div>
             <div class="form-group row pl-1 pr-3 ml-2">
                 <div class="filtre1">
-                  <!-- <input class="form-control" id="automplete-1" placeholder="M_00..."> -->
-                  {{selectmachineid}}
+                    <!-- <input class="form-control" id="automplete-1" placeholder="M_00..."> -->
+                    {{selectmachineid}}
                 </div>
             </div>
             <div class="form-group row pl-1 pr-3 ml-2">
-                    <div class="filtre1">
-                       <!-- <input id="date" type="text" />
+                <div class="filtre1">
+                    <!-- <input id="date" type="text" />
                         <span class="date-text"></span>
                         <i class="date-icon fa fa-calendar" aria-hidden="true"></i> -->
-                        {{selectdate}}
-                    </div>
+                    {{selectdate}}
+                </div>
             </div>
             <div class="form-group row pl-1 pr-3 ml-2">
                 <div class="filtre1">
-                  <!-- <input class="form-control" id="automplete-3" placeholder="3,6,12..."> -->
-                  {{selectperiod}}
+                    <!-- <input class="form-control" id="automplete-3" placeholder="3,6,12..."> -->
+                    {{selectperiod}}
                 </div>
             </div>
             <div class="form-check ml-4 mr-4 mb-2">
-              <div class="filtre1">
-                <!-- <input class="form-check-input" type="radio" value="" id="defaultCheck1">
+                <div class="filtre1">
+                    <!-- <input class="form-check-input" type="radio" value="" id="defaultCheck1">
                 <label class="form-check-label" for="defaultCheck1"> -->
-                {{fixed_price}}
-              </label>
-              </div>
+                    {{fixed_price}}
+                    </label>
+                </div>
             </div>
-            
-            
+
+
             <div class="form-check ml-4 mr-4 mb-2">
-              <div class="radioB1">
-                {{forecast_method}}
-                <!-- <input class="form-check-input" type="radio" value="" id="defaultCheck1">
+                <div class="radioB1">
+                    {{forecast_method}}
+                    <!-- <input class="form-check-input" type="radio" value="" id="defaultCheck1">
                 <label class="form-check-label" for="defaultCheck1">
                   <span class="firstRadio">Radio 1</span>
                   <span class="test1">Nothing</span>
                 </label> -->
-              </div>
+                </div>
             </div>
             <!-- <div class="form-check ml-4 mr-4 mb-2">
               <div class="filtre1">
@@ -104,14 +105,14 @@
                 <label class="form-check-label" for="defaultCheck1">Radio 3</label>
               </div>
             </div> -->
-            
-            
+
+
             <div class="form-group row pl-1 pr-3">
                 <div class="selectButton">
-                  {{calculate_button}}
+                    {{calculate_button}}
                 </div>
             </div>
-            
+
             <!--<button type="submit" class="btn selectButton mt-4" style="background: #fcb900; color: #000; width: 77%;">Calculate</button>-->
         </form>
 
@@ -128,16 +129,16 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav nav nav-pills mr-auto" id="pills-tab" role="tablist">
                         <!-- <li class="nav-item ">
                             <a class="nav-link" href="index2.html">Home <span class="sr-only">(current)</span></a>
                         </li> -->
 
-                        <li class="nav-item active">
+                        <!-- <li class="nav-item active">
                             <div class="dropdown">
                                 <button class="dropbtn">Menu</button>
                                 <div class="dropdown-content">
-                                    <a href="index2.html">Dynamic_price forecast</a>
+                                    <a href="#">Dynamic_price forecast</a>
                                     <a href="eda.html">EDA </a>
                                     <a href="#">About</a>
                                 </div>
@@ -146,8 +147,22 @@
 
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact us</a>
+                        </li> -->
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                                aria-selected="true">Forecast</button>
                         </li>
-                     
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                                aria-selected="false">EDA</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                                aria-selected="false">About</button>
+                        </li>
                     </ul>
                     <div>
                         <a class="x-logo-init" href="https://datadrivenx.com">
@@ -165,72 +180,86 @@
             </nav>
         </div>
         <canvas id="canvas1"></canvas>
-        <div class="row" style="margin-top: 30px;">
-            <div class="col-lg-6 p-4">
-                <div class="card block1">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-center">
-                            <span style="font-weight: bold;">IoT Health Index Forecast</span><br><span
-                                class="text-muted text2"></span>
-                        </div>
+        <div class="tab-content" id="pills-tabContent">
 
-                        <div class="plot2">
-                            {{lot_health}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 p-4">
-                <div class="card block1">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-center">
-                            <span style="font-weight: bold;">Dynamic Price Forecast</span><br><span
-                                class="text-muted text2"></span>
-                        </div>
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col-lg-6 p-4">
+                        <div class="card block1">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-center">
+                                    <span style="font-weight: bold;">IoT Health Index Forecast</span><br><span
+                                        class="text-muted text2"></span>
+                                </div>
 
-
-                        <div class="plot1">
-                           {{dynamic_price}}
+                                <div class="plot2">
+                                    {{lot_health}}
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div class="col-lg-6 p-4">
+                        <div class="card block1">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-center">
+                                    <span style="font-weight: bold;">Dynamic Price Forecast</span><br><span
+                                        class="text-muted text2"></span>
+                                </div>
+
+
+                                <div class="plot1">
+                                    {{dynamic_price}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 p-4">
+                        <div class="card block1">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-center">
+                                    <span style="font-weight: bold;">Premium Price Distribution</span><br><span
+                                        class="text-muted text2"></span>
+                                </div>
+
+
+                                <div class="plot3">
+                                    {{map_plot}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 p-4">
+                        <div class="card block1">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-center">
+                                    <span style="font-weight: bold;">Gain/Losses</span><br><span
+                                        class="text-muted text2"></span>
+                                </div>
+
+
+                                <div class="plot4">
+                                    1200€
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, fugit autem asperiores maiores eius aliquam maxime quibusdam praesentium sunt officia, doloremque aliquid fuga hic? Rem maxime adipisci quis ipsam illum.
+            </div>
+
+            <div class="tab-pane fade  " id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quos, iure modi earum harum incidunt neque eius reiciendis sunt, cum, vero accusamus at. Ipsum repellendus est maiores dolores corrupti porro.
+            </div>
         </div>
 
-        <div class="row">
-            <div class="col-lg-6 p-4">
-                <div class="card block1">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-center">
-                            <span style="font-weight: bold;">Premium Price Distribution</span><br><span
-                                class="text-muted text2"></span>
-                        </div>
-
-
-                        <div class="plot3">
-                          {{map_plot}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 p-4">
-                <div class="card block1">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-center">
-                            <span style="font-weight: bold;">Gain/Losses</span><br><span
-                                class="text-muted text2"></span>
-                        </div>
-
-
-                        <div class="plot4">
-                          1200€
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
     </div>
     <script src="assets/js/file.js"></script>
     <script src="assets/js/navbar.js"></script>

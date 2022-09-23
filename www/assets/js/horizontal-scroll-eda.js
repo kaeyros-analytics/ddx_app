@@ -19,15 +19,14 @@ var menuWrapperSize = getMenuWrapperSize();
 // the wrapper is responsive
 $(window).on('resize', function() {
 	menuWrapperSize = getMenuWrapperSize();
-    console.log(" ============= menuWrapperSize")
-    console.log(menuWrapperSize)
+    
 });
 // size of the visible part of the menu is equal as the wrapper size 
 var menuVisibleSize = menuWrapperSize;
 
 // get total width of all menu items
 var getMenuSize = function() {
-	return itemsLength * itemSize;
+	return itemsLength * itemSize + 270;
 };
 var menuSize = getMenuSize();
 // get how much of menu is invisible
@@ -53,25 +52,28 @@ $('.menu').on('scroll', function() {
 	if (menuPosition <= paddleMargin) {
 		$(leftPaddle).addClass('hidden');
 		$(rightPaddle).removeClass('hidden');
-	} else if (menuPosition < menuEndOffset) {
+	} else if (menuPosition + 250 < menuEndOffset) {
 		// show both paddles in the middle
 		$(leftPaddle).removeClass('hidden');
 		$(rightPaddle).removeClass('hidden');
-	} else if (menuPosition >= menuEndOffset) {
-        console.log("menuPosition " + menuPosition + ", ")
-        console.log("menuEndOffset " + menuEndOffset + ", ")
+	} else if (menuPosition + 250 >= menuEndOffset) {
+        console.log("=========================== close end")
 		$(leftPaddle).removeClass('hidden');
 		$(rightPaddle).addClass('hidden');
 }
 
 });
 
+let scrollPosition = 0;
+
 // scroll to left
 $(rightPaddle).on('click', function() {
-	$('.menu').animate( { scrollLeft: menuInvisibleSize}, scrollDuration);
+    scrollPosition += itemSize;
+	$('.menu').animate( { scrollLeft: scrollPosition}, scrollDuration);
 });
 
 // scroll to right
 $(leftPaddle).on('click', function() {
-	$('.menu').animate( { scrollLeft: '0' }, scrollDuration);
+    scrollPosition -= itemSize;
+	$('.menu').animate( { scrollLeft: scrollPosition }, scrollDuration);
 });

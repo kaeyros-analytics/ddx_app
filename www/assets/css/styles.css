@@ -224,7 +224,9 @@ label:hover .test1 {
     box-shadow: 2px 2px 35px rgb(0 0 0 / 97%);
   }
 
-  .paddles {}
+  .paddles {
+
+  }
 
   .paddle {
     position: absolute;
@@ -246,12 +248,14 @@ label:hover .test1 {
     display: none;
   }
 
-  .print {
-    margin: auto;
-    max-width: 500px;
+  #form-1 {
+    display: none;
   }
 
-  .print>span {
-    display: inline-block;
-    width: 100px;
+  #form-2 {
+    display: none;
+  }
+
+  #form-3 {
+    display: none;
   }

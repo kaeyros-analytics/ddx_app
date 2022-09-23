@@ -160,6 +160,17 @@ label:hover .test1 {
   display: inline;
 }
 
+#plot1 {
+  display: block;
+}
+
+#plot2 {
+  display: none;
+}
+
+#plot3 {
+  display: none;
+}
 
 .nav-pills .nav-link.active {
   background-color: #fcb900 !important;
@@ -181,7 +192,7 @@ label:hover .test1 {
 } */
 
   .menuVariable {
-    background: #f3f3f3;
+    background: transparent;
     box-sizing: border-box;
 
     white-space: nowrap;
@@ -204,6 +215,13 @@ label:hover .test1 {
     outline: 1px solid gray;
     padding-inline: 1em;
     padding-top: 0em;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 2px;
+  }
+
+  .itemVariable:hover {
+    box-shadow: 2px 2px 35px rgb(0 0 0 / 97%);
   }
 
   .paddles {}

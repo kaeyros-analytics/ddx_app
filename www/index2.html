@@ -51,13 +51,13 @@
 
         <div id="form-1">
             <form action="">
-            
+
                 <div class="form-group row  pl-1 pr-3 ml-2">
                     <div class="filtre1">
                         {{selectclientid}}
                     </div>
                 </div>
-    
+
                 <div class="form-group row pl-1 pr-3 ml-2">
                     <div class="filtre1">
                         {{selectmachineid}}
@@ -79,13 +79,13 @@
                         </label>
                     </div>
                 </div>
-    
+
                 <div class="form-check ml-4 mr-4 mb-2">
                     <div class="radioB1">
                         {{forecast_method}}
                     </div>
                 </div>
-    
+
                 <div class="form-group row pl-1 pr-3">
                     <div class="selectButton">
                         {{calculate_button}}
@@ -96,13 +96,13 @@
 
         <div id="form-2">
             <form action="">
-            
+
                 <div class="form-group row  pl-1 pr-3 ml-2">
                     <div class="filtre1">
                         {{selectclientid}}
                     </div>
                 </div>
-    
+
                 <div class="form-group row pl-1 pr-3 ml-2">
                     <div class="filtre1">
                         {{selectmachineid}}
@@ -118,7 +118,7 @@
                         {{selectperiod}}
                     </div>
                 </div>
-                
+
                 <div class="form-group row pl-1 pr-3">
                     <div class="selectButton">
                         {{calculate_button}}
@@ -129,7 +129,7 @@
 
         <div id="form-3">
             <form action="">
-            
+
             </form>
         </div>
     </div>
@@ -265,16 +265,18 @@
                         <div class="itemVariable">Variable 7</div>
                         <div class="itemVariable">Variable 8</div>
                     </div>
-                
+
                     <div class="paddles">
                         <button class="left-paddle paddle hidden" id="left-paddle">
-                            <i class="fas fa-angle-left" style="font-size:60px; color:#117a8b; text-shadow:2px 2px 4px #17a2b885;"></i>
+                            <i class="fas fa-angle-left"
+                                style="font-size:60px; color:#117a8b; text-shadow:2px 2px 4px #17a2b885;"></i>
                         </button>
                         <button class="right-paddle paddle" id="right-paddle">
-                            <i class="fas fa-angle-right" style="font-size:60px;color:#117a8b;text-shadow:2px 2px 4px #17a2b885;"></i>
+                            <i class="fas fa-angle-right"
+                                style="font-size:60px;color:#117a8b;text-shadow:2px 2px 4px #17a2b885;"></i>
                         </button>
                     </div>
-                
+
                 </div>
 
                 <div class="row" style="margin-top: 30px;">
@@ -287,13 +289,98 @@
                                 </div>
 
                                 <div class="plot2" id="plot1">
-                                    lot_health 1
+                                    <div class="row" style="margin-top: 20px;">
+                                        <div class="col-lg-4">
+                                            <div class="card" style="height: 500px;     border: 2px solid #b7e3de;">
+                                                <div class="card-body">
+                                                    <div class="plot1-var1">
+                                                        <!-- The first plot here -->
+                                                        plot1
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="card" style="height: 500px;     border: 2px solid #b7e3de;">
+                                                <div class="card-body">
+                                                    <div class="plot2-var1">
+                                                        <!-- The second plot here -->plot2
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="card" style="height: 500px;    border: 2px solid #b7e3de;">
+                                                <div class="card-body">
+                                                    <div class="plot3-var1">
+                                                        <!-- The third plot here -->plot3
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="plot2" id="plot2">
-                                    lot_health 2
+                                    <div class="row" style="margin-top: 20px;">
+                                        <div class="col-lg-4">
+                                            <div class="card" style="height: 500px;     border: 2px solid #b7e3de;">
+                                                <div class="card-body">
+                                                    <div class="plot1-var2">
+                                                        <!-- The first plot here -->var1
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="card" style="height: 500px;     border: 2px solid #b7e3de;">
+                                                <div class="card-body">
+                                                    <div class="plot2-var2">
+                                                        <!-- The second plot here -->var2
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="card" style="height: 500px;    border: 2px solid #b7e3de;">
+                                                <div class="card-body">
+                                                    <div class="plot3-var3">
+                                                        <!-- The third plot here -->var3
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="plot2" id="plot3">
-                                    lot_health 3
+                                    <div class="row" style="margin-top: 20px;">
+                                        <div class="col-lg-4">
+                                            <div class="card" style="height: 500px;     border: 2px solid #b7e3de;">
+                                                <div class="card-body">
+                                                    <div class="plot1-var3">
+                                                        <!-- The first plot here -->plot
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="card" style="height: 500px;     border: 2px solid #b7e3de;">
+                                                <div class="card-body">
+                                                    <div class="plot2-var3">
+                                                        <!-- The second plot here -->plot
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="card" style="height: 500px;    border: 2px solid #b7e3de;">
+                                                <div class="card-body">
+                                                    <div class="plot3-var3">
+                                                        <!-- The third plot here -->plot
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -307,10 +394,22 @@
                     <div class="col-lg-12 p-4">
                         <div class="card block1" style="height: auto !important;">
                             <div class="card-body">
-                                <p>The DDX IoT Dynamic Pricing App is designed to support Risk Managers in the pricing setting process. It can be used to gather real-time information about internal and external factors that can have impact on the premium rate and ultimately enable Risk Manager to determine for a given client and a given machine type the optimal premium rate.</p>
-                                <p>The Application uses the PAO (Predict-Optimize) + Forecast Framework. The margin rate will be predicted in a first step as a function of various parameters such as IoT_Health_Index, competitor price, consumer confidence index, geopolitical risk index, weather, demand for industrial good, inflation rate among others.</p>
-                                <p>The Back end of the App contains a data pipeline and for data preparation/transformation for modelling purposes, a PAO-Framework using Bayes Hierarchical regression Model, a Linear Programming model for Optimization (Thompson) and a Forecast-Engine (VAR, VARMA) to forecast future premium rate s in the next 3,6, 12 months.</p>
-                                <p>The Front end contains a main tab for forecasting activities and sub-tabs showing results of the Explorative Data Analysis using predictors and target variable.</p>
+                                <p>The DDX IoT Dynamic Pricing App is designed to support Risk Managers in the pricing
+                                    setting process. It can be used to gather real-time information about internal and
+                                    external factors that can have impact on the premium rate and ultimately enable Risk
+                                    Manager to determine for a given client and a given machine type the optimal premium
+                                    rate.</p>
+                                <p>The Application uses the PAO (Predict-Optimize) + Forecast Framework. The margin rate
+                                    will be predicted in a first step as a function of various parameters such as
+                                    IoT_Health_Index, competitor price, consumer confidence index, geopolitical risk
+                                    index, weather, demand for industrial good, inflation rate among others.</p>
+                                <p>The Back end of the App contains a data pipeline and for data
+                                    preparation/transformation for modelling purposes, a PAO-Framework using Bayes
+                                    Hierarchical regression Model, a Linear Programming model for Optimization
+                                    (Thompson) and a Forecast-Engine (VAR, VARMA) to forecast future premium rate s in
+                                    the next 3,6, 12 months.</p>
+                                <p>The Front end contains a main tab for forecasting activities and sub-tabs showing
+                                    results of the Explorative Data Analysis using predictors and target variable.</p>
 
                             </div>
                         </div>

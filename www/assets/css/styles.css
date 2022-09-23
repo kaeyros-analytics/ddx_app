@@ -52,10 +52,12 @@
 
 
 
-.block1, .blockEDA {
+.block1 {
   height: 460px;
 }
-
+.blockEDA {
+  height: 600px;
+}
 .fixed-top {
   background-color: #b7e3de;
   box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%);

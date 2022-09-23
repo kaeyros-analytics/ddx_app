@@ -90,3 +90,28 @@ $(leftPaddle).on('click', function() {
 	$('.menuVariable').animate( { scrollLeft: scrollPosition }, scrollDuration);
 	
 });
+
+
+//all item
+var item1 = document.getElementById('item-1');
+var item2 = document.getElementById('item-2');
+var item3 = document.getElementById('item-3');
+
+//click on card item
+$(item1).on('click', function() {
+	$('#plot1').show();
+    $('#plot2').hide();
+    $('#plot3').hide();
+});
+
+$(item2).on('click', function() {
+	$('#plot2').show();
+    $('#plot1').hide();
+    $('#plot3').hide();
+});
+
+$(item3).on('click', function() {
+	$('#plot3').show();
+    $('#plot1').hide();
+    $('#plot2').hide();
+});

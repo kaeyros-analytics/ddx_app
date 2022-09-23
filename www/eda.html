@@ -111,9 +111,9 @@
                             <div class="dropdown">
                                 <button class="dropbtn">Menu</button>
                                 <div class="dropdown-content">
-                                    <a href="index2.html">{{Dynamic_price forecast}}</a>
+                                    <a href="index2.html">Dynamic_price forecast</a>
                                     <a href="eda.html">EDA </a>
-                                    <a href="about.html">About</a>
+                                    <a href="#">About</a>
                                 </div>
                             </div>
                         </li>
@@ -140,69 +140,66 @@
         </div>
         <canvas id="canvas1" style="height: 140% !important;"></canvas>
 
-        <div class="row" style="margin-top: 28px;">
-            <div class="col-md-3 p-4">
-                <div class="card" style="margin-top: 2px;">
-                    <div class="card-body">
-                        <h5 class="text-center">Variable 1</h5>
-                    </div>
+        <div>
+            <div class="menu-wrapper">
+                <div class="menuVariable">
+                    <!-- <div style="width: 233px; height: 100px; border: solid 1px;">Lorem ipsum doloremque doloremque</div> -->
+                    <div class="itemVariable">Variable 1</div>
+                    <div class="itemVariable">Variable 1</div>
+                    <div class="itemVariable">Variable 1</div>
+                    <div class="itemVariable">Variable 1</div>
+                    <div class="itemVariable">Variable 1</div>
+                    <div class="itemVariable">Variable 1</div>
+                    <div class="itemVariable">Variable 1</div>
+                    <div class="itemVariable">Variable 1</div>
                 </div>
+            
+                <div class="paddles">
+                    <button class="left-paddle paddle hidden">
+                        <i class="fas fa-angle-left" style="font-size:60px; color:#117a8b; text-shadow:2px 2px 4px #17a2b885;"></i>
+                    </button>
+                    <button class="right-paddle paddle">
+                        <i class="fas fa-angle-right" style="font-size:60px;color:#117a8b;text-shadow:2px 2px 4px #17a2b885;"></i>
+                    </button>
+                </div>
+            
             </div>
-            <div class="col-md-3 p-4">
-                <div class="card" style=" margin-top: 2px;">
-                    <div class="card-body">
-                        <h5 class="text-center">Variable 2</h5>
+
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-lg-12 p-4">
+                    <div class="card block1">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-center">
+                                <span style="font-weight: bold;">IoT Health Index Forecast</span><br><span
+                                    class="text-muted text2"></span>
+                            </div>
+    
+                            <div class="plot2">
+                                {{lot_health}}
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3 p-4">
-                <div class="card"  style=" margin-top: 2px;">
-                    <div class="card-body">
-                        <h5 class="text-center">Variable 3</h5>
+                <!-- <div class="col-lg-6 p-4">
+                    <div class="card block1">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-center">
+                                <span style="font-weight: bold;">Dynamic Price Forecast</span><br><span
+                                    class="text-muted text2"></span>
+                            </div>
+    
+    
+                            <div class="plot1">
+                               {{dynamic_price}}
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-3 p-4">
-                <div class="card" style="margin-top: 2px;">
-                    <div class="card-body">
-                        <h5 class="text-center">Variable 4</h5>
-                    </div>
-                </div>
+                </div> -->
+    
             </div>
         </div>
+
         
-        <div class="row" style="margin-top: 30px;">
-            <div class="col-lg-12 p-4">
-                <div class="card block1">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-center">
-                            <span style="font-weight: bold;">IoT Health Index Forecast</span><br><span
-                                class="text-muted text2"></span>
-                        </div>
-
-                        <div class="plot2">
-                            {{lot_health}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- <div class="col-lg-6 p-4">
-                <div class="card block1">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-center">
-                            <span style="font-weight: bold;">Dynamic Price Forecast</span><br><span
-                                class="text-muted text2"></span>
-                        </div>
-
-
-                        <div class="plot1">
-                           {{dynamic_price}}
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
-        </div>
 
         <!-- <div class="row">
             <div class="col-lg-6 p-4">
@@ -242,6 +239,7 @@
     <script src="assets/js/navbar.js"></script>
     <script src="assets/js/filter.js"></script>
     <script src="assets/js/calendar.js"></script>
+    <script src="assets/js/horizontal-scroll-eda.js"></script>
 
     </div>
 </body>

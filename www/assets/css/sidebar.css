@@ -41,6 +41,14 @@ body {
     /* color: #f9d957; */
 }
 
+#pgmain {
+    flex-grow: 1;
+    margin-left: 15%;
+    margin-top: 4%;
+    /* position: fixed; */
+    width: 80%;
+}
+
 /* Resonsive transformation for mobile display. We can enhance it if needed. */
 @media screen and (max-width:768px) {
     #pgside {
@@ -63,7 +71,8 @@ body {
 
     /*#pgside i.txt { display: none; }*/
     #pgmain {
-        margin-left: 15% !important;
+        /* margin-left: 15% !important; */
+        /* width: 80%; */
     }
     
     .filtre1 {
@@ -85,11 +94,7 @@ body {
   }
 }
 
-#pgmain {
-    flex-grow: 1;
-    margin-left: 15%;
-    margin-top: 4%;
-}
+
 
 .filtre1 {
     width: 200px !important;

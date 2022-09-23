@@ -256,35 +256,28 @@
 
             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                 <canvas id="canvas2"></canvas>
-                <div class="row" style="margin-top: 28px;">
-                    <div class="col-md-3 p-4">
-                        <div class="card" style="margin-top: 2px;">
-                            <div class="card-body">
-                                <h5 class="text-center">Variable 1</h5>
-                            </div>
-                        </div>
+                <div class="menu-wrapper">
+                    <div class="menuVariable">
+                        <!-- <div style="width: 233px; height: 100px; border: solid 1px;">Lorem ipsum doloremque doloremque</div> -->
+                        <div class="itemVariable">Variable 1</div>
+                        <div class="itemVariable">Variable 1</div>
+                        <div class="itemVariable">Variable 1</div>
+                        <div class="itemVariable">Variable 1</div>
+                        <div class="itemVariable">Variable 1</div>
+                        <div class="itemVariable">Variable 1</div>
+                        <div class="itemVariable">Variable 1</div>
+                        <div class="itemVariable">Variable 1</div>
                     </div>
-                    <div class="col-md-3 p-4">
-                        <div class="card" style=" margin-top: 2px;">
-                            <div class="card-body">
-                                <h5 class="text-center">Variable 2</h5>
-                            </div>
-                        </div>
+                
+                    <div class="paddles">
+                        <button class="left-paddle paddle hidden">
+                            <i class="fas fa-angle-left" style="font-size:60px; color:#117a8b; text-shadow:2px 2px 4px #17a2b885;"></i>
+                        </button>
+                        <button class="right-paddle paddle">
+                            <i class="fas fa-angle-right" style="font-size:60px;color:#117a8b;text-shadow:2px 2px 4px #17a2b885;"></i>
+                        </button>
                     </div>
-                    <div class="col-md-3 p-4">
-                        <div class="card" style=" margin-top: 2px;">
-                            <div class="card-body">
-                                <h5 class="text-center">Variable 3</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 p-4">
-                        <div class="card" style="margin-top: 2px;">
-                            <div class="card-body">
-                                <h5 class="text-center">Variable 4</h5>
-                            </div>
-                        </div>
-                    </div>
+                
                 </div>
 
                 <div class="row" style="margin-top: 30px;">
@@ -302,6 +295,22 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-6 p-4">
+                        <div class="card block1">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-center">
+                                    <span style="font-weight: bold;">Gain/Losses</span><br><span
+                                        class="text-muted text2"></span>
+                                </div>
+
+
+                                <div class="plot4">
+                                    1200€
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
@@ -311,62 +320,11 @@
                     <div class="col-lg-12 p-4">
                         <div class="card block1" style="height: auto !important;">
                             <div class="card-body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum lobortis
-                                    nisl id sodales. Aliquam convallis ante nec ligula convallis vestibulum. Etiam eget
-                                    rhoncus elit. Praesent pretium in mauris quis molestie. Curabitur ultrices ipsum in
-                                    turpis tempus, eget aliquam ex aliquam. Cras malesuada ac ipsum et sollicitudin.
-                                    Donec mi neque, ultricies congue erat at, laoreet iaculis orci. Donec ornare nisi
-                                    sed rutrum pretium. Sed blandit neque sit amet nisl hendrerit efficitur. Nullam est
-                                    diam, ullamcorper id elementum laoreet, scelerisque et elit.
+                                <p>The DDX IoT Dynamic Pricing App is designed to support Risk Managers in the pricing setting process. It can be used to gather real-time information about internal and external factors that can have impact on the premium rate and ultimately enable Risk Manager to determine for a given client and a given machine type the optimal premium rate.</p>
+                                <p>The Application uses the PAO (Predict-Optimize) + Forecast Framework. The margin rate will be predicted in a first step as a function of various parameters such as IoT_Health_Index, competitor price, consumer confidence index, geopolitical risk index, weather, demand for industrial good, inflation rate among others.</p>
+                                <p>The Back end of the App contains a data pipeline and for data preparation/transformation for modelling purposes, a PAO-Framework using Bayes Hierarchical regression Model, a Linear Programming model for Optimization (Thompson) and a Forecast-Engine (VAR, VARMA) to forecast future premium rate s in the next 3,6, 12 months.</p>
+                                <p>The Front end contains a main tab for forecasting activities and sub-tabs showing results of the Explorative Data Analysis using predictors and target variable.</p>
 
-                                    Pellentesque ac sollicitudin ligula. Sed sit amet augue nibh. Morbi a pellentesque
-                                    dui, a lobortis sem. Praesent ac porttitor tellus, non ultrices sapien. Nullam non
-                                    nisi eros. Maecenas enim purus, accumsan a lorem in, imperdiet fermentum ante.
-                                    Maecenas porttitor libero ac mi imperdiet, vitae euismod felis varius. Vestibulum
-                                    libero lorem, porttitor at velit ut, pretium hendrerit tellus. Ut volutpat ut lorem
-                                    at laoreet. Suspendisse cursus mi id tincidunt pretium.
-
-                                    Suspendisse accumsan, enim convallis venenatis vestibulum, ex tellus semper ex, eget
-                                    tincidunt est quam nec leo. Cras consectetur placerat felis eget euismod. Ut et
-                                    rhoncus mauris, non vestibulum elit. Etiam volutpat lorem et augue ultrices dictum
-                                    quis eu augue. Nam nec pellentesque elit, at tempor felis. Curabitur interdum arcu
-                                    quis diam efficitur, ut iaculis mauris dictum. Mauris pretium metus est, quis
-                                    ultricies purus gravida a. Sed sit amet arcu at leo blandit rhoncus. Morbi sodales
-                                    elementum tempus. Duis sed tellus sed dolor interdum sollicitudin vitae et massa.
-                                    Suspendisse fermentum sit amet orci tincidunt suscipit. Ut iaculis felis est, sit
-                                    amet dapibus orci mattis eget. Fusce in velit eget lorem accumsan fringilla.
-                                    Phasellus lobortis sit amet est eu tempor.
-
-                                    Nulla eu sapien et mauris consectetur suscipit non sed neque. Nam vehicula viverra
-                                    accumsan. Proin convallis facilisis ligula, at accumsan velit finibus sed. In at
-                                    urna laoreet, sagittis risus quis, lobortis justo. Ut diam felis, varius non
-                                    malesuada quis, viverra aliquam est. Fusce eget quam arcu. Ut non nunc a odio
-                                    consequat facilisis. Mauris tempor auctor pulvinar.
-
-                                    Maecenas scelerisque risus eget nunc rhoncus laoreet. Fusce commodo quis quam nec
-                                    consequat. Integer consectetur nisi mollis, feugiat risus in, pulvinar eros. Duis in
-                                    quam turpis. Suspendisse gravida porttitor quam quis facilisis. Sed vitae risus
-                                    congue, volutpat justo non, vulputate purus. Suspendisse hendrerit enim nec
-                                    tincidunt laoreet. Maecenas fermentum eu massa in scelerisque. Sed sagittis, diam
-                                    sit amet efficitur dictum, libero nisl accumsan nunc, at placerat quam lectus
-                                    aliquam nisl. Mauris pulvinar dolor eu est mollis egestas nec eu quam. Integer a
-                                    risus nec nunc ornare laoreet vel at lorem. Ut sit amet sapien consequat felis
-                                    aliquam auctor. Fusce tempus dui ipsum, eu posuere neque sodales vel.
-
-                                    Donec eget sem magna. Suspendisse non urna diam. Vestibulum quis imperdiet sapien,
-                                    vitae suscipit erat. Mauris lobortis ante non pharetra laoreet. Nulla sagittis sit
-                                    amet neque a egestas. Sed at augue eget diam aliquam dapibus. Fusce in ante id eros
-                                    luctus finibus ut a quam. Sed porttitor venenatis leo, at auctor lacus mattis non.
-                                    Donec leo magna, volutpat a scelerisque quis, ultrices ac ipsum.
-
-                                    Vivamus ultricies augue ante, eget feugiat nulla porta vitae. Vestibulum tempor
-                                    bibendum purus non suscipit. Morbi neque urna, iaculis in nisl quis, aliquam tempus
-                                    ligula. Quisque imperdiet purus vel ligula efficitur, a viverra eros maximus. Fusce
-                                    et tortor fringilla, rhoncus odio vitae, tempor velit. Sed accumsan tortor non augue
-                                    condimentum fermentum ut non enim. Donec cursus mattis quam, sed tempor massa
-                                    interdum et. Donec consequat mollis leo sit amet vulputate. Quisque eget magna
-                                    metus. Suspendisse finibus sagittis leo, in rutrum lectus dapibus ut. Vestibulum
-                                    lobortis posuere gravida.</p>
                             </div>
                         </div>
                     </div>
@@ -379,6 +337,7 @@
     <script src="assets/js/navbar.js"></script>
     <script src="assets/js/filter.js"></script>
     <script src="assets/js/calendar.js"></script>
+    <script src="assets/js/horizontal-scroll-eda.js"></script>
 
     </div>
 </body>

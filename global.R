@@ -49,7 +49,8 @@ library(shinythemes)
 library(shiny.react)
 library(shiny.router)
 library(fpp2)
-# library(ggfortify)
+library(ggfortify)
+library(reactable)
 
 # 1. Loading required data   ####
 #__________________________

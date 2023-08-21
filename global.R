@@ -1,3 +1,9 @@
+# including some changes here 
+#  just to test how git works
+# and train Ryan on using a git-system
+# for versioning (Thierry)
+
+
 # 0. Setting and loading packages  ####
 #_______________________________
 
